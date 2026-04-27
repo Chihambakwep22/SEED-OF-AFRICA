@@ -1,0 +1,30 @@
+backend:
+  buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
+  startCommand: gunicorn seedofafrica.wsgi:application --bind 0.0.0.0:$PORT
+  envVars:
+    - key: DEBUG
+      value: "false"
+    - key: SECRET_KEY
+      generateValue: true
+    - key: ALLOWED_HOSTS
+      value: "seed-of-africa-api.onrender.com"
+    - key: DATABASE_URL
+      fromDatabase:
+        name: seedofafrica_db
+        property: connectionString
+    - key: CORS_ALLOWED_ORIGINS
+      value: "https://seed-of-africa-frontend.onrender.com"
+    - key: DEFAULT_FROM_EMAIL
+      value: "noreply@seedofafrica.com"
+    - key: EMAIL_HOST
+      value: "smtp.sendgrid.net"
+    - key: EMAIL_PORT
+      value: "587"
+    - key: EMAIL_USE_TLS
+      value: "true"
+    - key: EMAIL_HOST_USER
+      value: "apikey"
+    - key: EMAIL_HOST_PASSWORD
+      generateValue: true
+  healthCheckPath: /api/health/
+  autoDeploy: true

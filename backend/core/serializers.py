@@ -1,49 +1,50 @@
 from rest_framework import serializers
+from django.utils import timezone
+
 from .models import (
-    ContactMessage, Service, CaseStudy, BlogPost, 
-    Resource, TeamMember, Testimonial
+    ContactMessage, Service, CaseStudy, BlogPost, Resource,
+    TeamMember, Testimonial
 )
 
-
+# ---------------- CONTACT ----------------
 class ContactMessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContactMessage
-        fields = ['id', 'name', 'email', 'phone', 'company', 'service_type', 'message', 'created_at']
-        read_only_fields = ['created_at']
+        fields = '__all__'
 
 
+# ---------------- CORE CONTENT ----------------
 class ServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Service
-        fields = ['id', 'title', 'category', 'description', 'short_description', 'icon']
+        fields = '__all__'
 
 
 class CaseStudySerializer(serializers.ModelSerializer):
     class Meta:
         model = CaseStudy
-        fields = ['id', 'company_name', 'challenge', 'solution', 'result', 'roi', 'image', 'featured']
+        fields = '__all__'
 
 
 class BlogPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = BlogPost
-        fields = ['id', 'title', 'excerpt', 'content', 'author', 'created_at', 'featured', 'published']
-        read_only_fields = ['created_at']
+        fields = '__all__'
 
 
 class ResourceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Resource
-        fields = ['id', 'title', 'description', 'resource_type', 'file_format', 'file', 'downloads']
+        fields = '__all__'
 
 
 class TeamMemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = TeamMember
-        fields = ['id', 'name', 'title', 'bio', 'email', 'linkedin', 'image']
+        fields = '__all__'
 
 
 class TestimonialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Testimonial
-        fields = ['id', 'client_name', 'client_company', 'client_role', 'testimonial', 'rating', 'image']
+        fields = '__all__'
