@@ -1,0 +1,302 @@
+/* ===== HERO SECTION ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, var(--primary-light) 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  overflow: hidden;
+  padding: var(--spacing-4xl) var(--spacing-lg);
+}
+
+/* Animated background orbs */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  animation: float 20s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+  top: -200px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  bottom: -150px;
+  left: -100px;
+  animation-delay: -10s;
+}
+
+.hero-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.04) 0%, transparent 50%);
+  z-index: 1;
+}
+
+/* Main content */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Badge */
+.hero-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius-full);
+  color: var(--secondary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-lg);
+  backdrop-filter: blur(10px);
+  animation: fadeInDown 0.8s ease-out;
+}
+
+/* Title */
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: var(--spacing-lg);
+  color: var(--white);
+  letter-spacing: -0.02em;
+  
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.2s forwards;
+}
+
+.hero-title span {
+  display: block;
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtitle */
+.hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xl);
+  color: rgba(255, 255, 255, 0.9);
+  
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.4s forwards;
+}
+
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.6s forwards;
+}
+
+.hero-buttons .btn-lg {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-buttons .btn-primary {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+  color: var(--text-dark);
+  box-shadow: 0 4px 15px rgba(240, 173, 78, 0.4);
+}
+
+.hero-buttons .btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(240, 173, 78, 0.5);
+}
+
+.hero-buttons .btn-outline {
+  border-width: 2px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+.hero-buttons .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* Glow effect on primary button */
+.btn-glow {
+  box-shadow: 0 0 20px rgba(240, 173, 78, 0.4);
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+/* Scroll indicator */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: var(--spacing-2xl);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: fadeIn 1s ease-out 1.2s forwards, float 3s ease-in-out infinite;
+  opacity: 0;
+}
+
+.mouse {
+  width: 24px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.wheel {
+  width: 4px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  margin-top: 8px;
+  animation: scrollWheel 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollWheel {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero {
+    padding: var(--spacing-3xl) var(--spacing-md);
+    min-height: auto;
+    padding-top: 40vh;
+    padding-bottom: var(--spacing-3xl);
+  }
+
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 6px 16px;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-sm);
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .hero-buttons .btn-lg {
+    padding: 14px 24px;
+  }
+
+  .hero-scroll-indicator {
+    display: none;
+  }
+
+  .orb-1, .orb-2 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .orb-1 {
+    top: -100px;
+    right: -50px;
+  }
+
+  .orb-2 {
+    bottom: -100px;
+    left: -50px;
+  }
+}
+
+/* Animation classes for scroll reveal */
+.reveal-title,
+.reveal-subtitle,
+.reveal-buttons {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-title.active,
+.reveal-subtitle.active,
+.reveal-buttons.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-badge {
+  opacity: 0;
+  transform: translateY(-20px) scale(0.9);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-badge.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}

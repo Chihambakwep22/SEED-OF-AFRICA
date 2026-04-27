@@ -1,0 +1,18 @@
+/* ===== HOME PAGE ===== */
+.home {
+  min-height: 100vh;
+}
+
+/* Section spacing */
+.home > section {
+  position: relative;
+}
+
+.home > section:first-child {
+  padding-top: 0;
+}
+
+/* Smooth transitions between sections */
+.home > section {
+  transition: background-color 0.3s ease;
+}

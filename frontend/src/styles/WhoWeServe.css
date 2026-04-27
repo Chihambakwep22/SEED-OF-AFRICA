@@ -1,0 +1,217 @@
+/* ===== WHO WE SERVE SECTION ===== */
+.who-we-serve {
+  padding: var(--spacing-4xl) var(--spacing-lg);
+  background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-light) 100%);
+  position: relative;
+}
+
+/* Decorative elements */
+.who-we-serve::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  opacity: 0.06;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: float 14s ease-in-out infinite;
+}
+
+/* Section headers */
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  text-align: center;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto var(--spacing-2xl);
+  line-height: 1.8;
+}
+
+/* Reveal animations */
+.reveal-title,
+.reveal-subtitle {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-title.active,
+.reveal-subtitle.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cards grid */
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+  gap: var(--spacing-xl);
+}
+
+/* Card styling */
+.serve-card {
+  position: relative;
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.serve-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, var(--secondary) 0%, var(--accent) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.serve-card:hover::before {
+  transform: scaleX(1);
+}
+
+.serve-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-2xl);
+  border-color: transparent;
+}
+
+/* Card header */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--secondary);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.serve-card:hover .card-icon {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.card-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card content */
+.serve-card p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-lg);
+}
+
+.serve-card ul {
+  list-style: none;
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.serve-card li {
+  padding: var(--spacing-xs) 0;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* Enhanced button with arrow */
+.btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: auto;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-arrow svg {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-arrow:hover svg {
+  transform: translateX(4px);
+}
+
+/* Staggered animations */
+.stagger-children .serve-card {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stagger-children.active .serve-card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.stagger-children.active > .serve-card:nth-child(1) { transition-delay: 0.15s; }
+.stagger-children.active > .serve-card:nth-child(2) { transition-delay: 0.3s; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .who-we-serve {
+    padding: var(--spacing-3xl) var(--spacing-md);
+  }
+
+  .service-cards {
+    gap: var(--spacing-lg);
+  }
+
+  .serve-card {
+    padding: 1.5rem;
+  }
+
+  .card-header {
+    gap: var(--spacing-sm);
+  }
+
+  .card-icon {
+    font-size: 2rem;
+  }
+
+  .card-header h3 {
+    font-size: 1.25rem;
+  }
+
+  .who-we-serve::before {
+    display: none;
+  }
+}
