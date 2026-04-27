@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from .views import (
     ContactMessageViewSet, ServiceViewSet, CaseStudyViewSet,
     BlogPostViewSet, ResourceViewSet, TeamMemberViewSet,
-    TestimonialViewSet
+    TestimonialViewSet, health_check
 )
 
 router = DefaultRouter()
@@ -16,5 +16,6 @@ router.register(r'team-members', TeamMemberViewSet, basename='team-members')
 router.register(r'testimonials', TestimonialViewSet, basename='testimonials')
 
 urlpatterns = [
+    path('health/', health_check, name='health-check'),
     path('', include(router.urls)),
 ]

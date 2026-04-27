@@ -1,6 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from django.http import JsonResponse
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import (
@@ -12,6 +13,10 @@ from .serializers import (
     BlogPostSerializer, ResourceSerializer, TeamMemberSerializer,
     TestimonialSerializer
 )
+
+
+def health_check(request):
+    return JsonResponse({"status": "ok"})
 
 
 class ContactMessageViewSet(viewsets.ModelViewSet):

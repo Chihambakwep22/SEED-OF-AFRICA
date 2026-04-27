@@ -156,6 +156,16 @@ Website is fully responsive:
 
 ## Deployment
 
+### Render (Recommended)
+- Use Blueprint deploy from repository root with [render.yaml](render.yaml).
+- This provisions:
+	- Django API service from [backend](backend)
+	- Static React frontend from [frontend](frontend)
+	- PostgreSQL database
+- Set `EMAIL_HOST_PASSWORD` in Render dashboard after first deploy.
+- Frontend is configured to call backend via `VITE_API_URL` in Blueprint.
+- Backend health endpoint: `/api/health/`.
+
 ### Frontend
 - Build: `npm run build`
 - Deploy to: Vercel, Netlify, or AWS S3
