@@ -25,11 +25,11 @@ export default function CoreAdvantages() {
   return (
     <section className="core-advantages">
       <div className="section-container">
-        <div ref={containerRef.ref}>
+        <div ref={containerRef.ref} className="stagger-children">
           <h2 className="section-title reveal-title">Your Core Advantage</h2>
           <p className="section-subtitle reveal-subtitle">Three pillars powering the future of ESD</p>
 
-          <div className="pillars-grid stagger-children">
+          <div className="pillars-grid">
             {pillars.map((pillar, index) => (
               <div key={index} className="pillar-card">
                 <div className="pillar-icon-wrapper">

@@ -37,11 +37,11 @@ export default function CaseStudies() {
   return (
     <section className="case-studies">
       <div className="section-container">
-        <div ref={containerRef.ref}>
+        <div ref={containerRef.ref} className="stagger-children">
           <h2 className="section-title reveal-title">Success Stories</h2>
           <p className="section-subtitle reveal-subtitle">How we transformed suppliers into market leaders</p>
 
-          <div className="cases-grid stagger-children">
+          <div className="cases-grid">
             {cases.map(caseStudy => (
               <div key={caseStudy.id} className="case-card">
                 <div className="case-header">

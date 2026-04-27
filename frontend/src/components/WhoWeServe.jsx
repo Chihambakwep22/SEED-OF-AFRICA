@@ -8,13 +8,13 @@ export default function WhoWeServe() {
   return (
     <section className="who-we-serve">
       <div className="section-container">
-        <div ref={containerRef.ref}>
+        <div ref={containerRef.ref} className="stagger-children">
           <h2 className="section-title reveal-title">Who We Serve</h2>
           <p className="section-intro reveal-subtitle">
             Transforming enterprises and entrepreneurs into a high-performance ecosystem
           </p>
 
-          <div className="service-cards stagger-children">
+          <div className="service-cards">
             <div className="serve-card">
               <div className="card-header">
                 <span className="card-icon">🏢</span>

@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 /**
  * Custom hook for scroll reveal animations using Intersection Observer
  * @param {Object} options - IntersectionObserver options
- * @returns {Object} - Ref to bind to element and options
+ * @returns {Object} - Ref to bind to element
  */
 export default function useScrollReveal(options = {}) {
   const elementRef = useRef(null)
@@ -15,7 +15,14 @@ export default function useScrollReveal(options = {}) {
     // Mark that JS-powered reveal behavior is available.
     document.documentElement.classList.add('js-reveal')
 
+    // Fallback: ensure element becomes visible after a short delay
+    const fallbackTimer = setTimeout(() => {
+      element.classList.add('active')
+      element.querySelectorAll('.reveal, .reveal-title, .reveal-subtitle, .reveal-left, .reveal-right, .reveal-scale, .reveal-content, .stagger-children').forEach(node => node.classList.add('active'))
+    }, 100)
+
     if (typeof IntersectionObserver === 'undefined') {
+      clearTimeout(fallbackTimer)
       element.classList.add('active')
       return
     }
@@ -24,13 +31,13 @@ export default function useScrollReveal(options = {}) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            clearTimeout(fallbackTimer)
             entry.target.classList.add('active')
             entry.target
               .querySelectorAll(
                 '.reveal, .reveal-title, .reveal-subtitle, .reveal-left, .reveal-right, .reveal-scale, .reveal-content, .stagger-children'
               )
               .forEach((node) => node.classList.add('active'))
-            // Optionally unobserve after animation
             if (options.once !== false) {
               observer.unobserve(entry.target)
             }
@@ -54,6 +61,7 @@ export default function useScrollReveal(options = {}) {
     observer.observe(element)
 
     return () => {
+      clearTimeout(fallbackTimer)
       if (element) {
         observer.unobserve(element)
       }
@@ -75,7 +83,14 @@ export function useStaggeredReveal(options = {}) {
 
     document.documentElement.classList.add('js-reveal')
 
+    // Fallback: ensure visible after short delay
+    const fallbackTimer = setTimeout(() => {
+      container.classList.add('active')
+      container.querySelectorAll('.reveal, .reveal-title, .reveal-subtitle, .reveal-left, .reveal-right, .reveal-scale, .reveal-content, .stagger-children').forEach(node => node.classList.add('active'))
+    }, 100)
+
     if (typeof IntersectionObserver === 'undefined') {
+      clearTimeout(fallbackTimer)
       container.classList.add('active')
       Array.from(container.children).forEach((child) => child.classList.add('active'))
       return
@@ -86,13 +101,8 @@ export function useStaggeredReveal(options = {}) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            clearTimeout(fallbackTimer)
             entry.target.classList.add('active')
-            entry.target
-              .querySelectorAll(
-                '.reveal, .reveal-title, .reveal-subtitle, .reveal-left, .reveal-right, .reveal-scale, .reveal-content, .stagger-children'
-              )
-              .forEach((node) => node.classList.add('active'))
-
             Array.from(children).forEach((child, index) => {
               setTimeout(() => {
                 child.classList.add('active')
@@ -103,11 +113,6 @@ export function useStaggeredReveal(options = {}) {
             }
           } else if (!options.once) {
             entry.target.classList.remove('active')
-            entry.target
-              .querySelectorAll(
-                '.reveal, .reveal-title, .reveal-subtitle, .reveal-left, .reveal-right, .reveal-scale, .reveal-content, .stagger-children'
-              )
-              .forEach((node) => node.classList.remove('active'))
           }
         })
       },
@@ -120,6 +125,7 @@ export function useStaggeredReveal(options = {}) {
     observer.observe(container)
 
     return () => {
+      clearTimeout(fallbackTimer)
       if (container) {
         observer.unobserve(container)
       }
