@@ -1,37 +1,30 @@
-# Core Django
 Django==4.2.7
 gunicorn==20.1.0
 psycopg2-binary==2.9.12
 python-decouple==3.8
+dj-database-url==1.2.0
+whitenoise==6.5.0
 
 # REST API
 djangorestframework==3.14.0
 django-cors-headers==4.3.1
 
-# Media & Static Files
+# Media files
 Pillow>=11.0,<12.0
-whitenoise==6.5.0
 
-# Email (for SendGrid)
+# Email
 sendgrid==6.11.0
 
-# PDF Generation
+# PDF generation
 reportlab==4.0.4
 xhtml2pdf==0.2.11
 weasyprint==59.0
 
-# AI/ML (lightweight for production)
-scikit-learn==1.3.0
-numpy==1.24.3
-pandas==2.0.3
-
-# Celery (async tasks - optional)
-# celery==5.2.7
-# redis==4.6.0
-
-# Monitoring
-django-debug-toolbar==3.8.1  # Remove in production
-
 # Utilities
 django-extensions==3.2.3
 python-dateutil==2.8.2
+numpy==1.24.3
+pandas==2.0.3
+
+# For production only
+# django-debug-toolbar==3.8.1  # Remove in production

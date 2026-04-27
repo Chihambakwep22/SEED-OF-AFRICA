@@ -1,12 +1,1 @@
-FROM node:18-alpine
-
-WORKDIR /app
-
-COPY package.json package-lock.json ./
-RUN npm ci
-
-COPY . .
-
-EXPOSE 5173
-
-CMD ["npm", "run", "dev", "--", "--host"]
+[{'from': 'node:18-alpine', 'as': 'build', 'working_dir': '/app', 'copy': ['.', './'], 'run': 'npm run build'}, {'from': 'nginx:alpine', 'copy': {'from': 'build', 'source': '/app/dist', 'target': '/usr/share/nginx/html'}}, {'copy': ['frontend/nginx.conf', '/etc/nginx/conf.d/default.conf'], 'expose': ['80'], 'cmd': ['nginx', '-g', 'daemon off;']}]
