@@ -1,5 +1,6 @@
 """Django settings for seedofafrica project."""
 
+from importlib.util import find_spec
 from pathlib import Path
 
 import dj_database_url
@@ -35,7 +36,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
 	"django.middleware.security.SecurityMiddleware",
-	"whitenoise.middleware.WhiteNoiseMiddleware",
 	"corsheaders.middleware.CorsMiddleware",
 	"django.contrib.sessions.middleware.SessionMiddleware",
 	"django.middleware.common.CommonMiddleware",
@@ -44,6 +44,9 @@ MIDDLEWARE = [
 	"django.contrib.messages.middleware.MessageMiddleware",
 	"django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+if find_spec("whitenoise") is not None:
+	MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
 
 ROOT_URLCONF = "seedofafrica.urls"
 
@@ -93,7 +96,8 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+if find_spec("whitenoise") is not None:
+	STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
