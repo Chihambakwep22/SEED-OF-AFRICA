@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="footer-section">
           <div className="footer-logo">
             <span className="logo-icon">🌱</span>
-            <h3>Seed of Africa</h3>
+            <h3>Thale-Quants</h3>
           </div>
           <p>AI-Powered Enterprise & Supplier Development for the Future of Africa</p>
           <div className="footer-tagline">
@@ -57,7 +57,7 @@ export default function Footer() {
             <a href="#" className="social-icon" aria-label="Instagram">
               <FiInstagram size={18} />
             </a>
-            <a href="mailto:hello@seedofafrica.com" className="social-icon" aria-label="Email">
+            <a href="mailto:hello@thale-quants.co.za" className="social-icon" aria-label="Email">
               <FiMail size={18} />
             </a>
           </div>
@@ -66,7 +66,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <div className="footer-bottom-content">
-          <p>&copy; {new Date().getFullYear()} Seed of Africa. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Thale-Quants. All rights reserved.</p>
           <div className="footer-legal">
             <a href="#">Privacy Policy</a>
             <span>•</span>

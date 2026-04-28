@@ -1,7 +1,7 @@
 @echo off
-REM Seed of Africa - Backend Setup Script for Windows
+REM Thale-Quants - Backend Setup Script for Windows
 
-echo 🌱 Seed of Africa - Backend Setup
+echo 🌱 Thale-Quants - Backend Setup
 echo ==================================
 
 REM Check if Python is installed

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Seed of Africa - Backend Setup Script
+# Thale-Quants - Backend Setup Script
 
-echo "🌱 Seed of Africa - Backend Setup"
+echo "🌱 Thale-Quants - Backend Setup"
 echo "=================================="
 
 # Check if Python is installed

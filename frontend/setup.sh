@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Seed of Africa - Frontend Setup Script
+# Thale-Quants - Frontend Setup Script
 
-echo "🌱 Seed of Africa - Frontend Setup"
+echo "🌱 Thale-Quants - Frontend Setup"
 echo "==================================="
 
 # Check if Node is installed

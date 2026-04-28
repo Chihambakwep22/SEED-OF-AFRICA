@@ -1,7 +1,7 @@
 @echo off
-REM Seed of Africa - Frontend Setup Script for Windows
+REM Thale-Quants - Frontend Setup Script for Windows
 
-echo 🌱 Seed of Africa - Frontend Setup
+echo 🌱 Thale-Quants - Frontend Setup
 echo ===================================
 
 REM Check if Node is installed

@@ -26,7 +26,7 @@ export default function About() {
   return (
     <div className="about">
       <section className="page-hero">
-        <h1>About Seed of Africa</h1>
+        <h1>About Thale-Quants</h1>
         <p>Disrupting Enterprise & Supplier Development with AI</p>
       </section>
 
@@ -62,7 +62,7 @@ export default function About() {
       </section>
 
       <section ref={(el) => (sectionsRef.current[2] = el)} className="about-section">
-        <h2>Why Choose Seed of Africa?</h2>
+        <h2>Why Choose Thale-Quants?</h2>
         <ul className="benefits-list">
           <li>We don't just comply; we create competitive advantage</li>
           <li>AI-enhanced processes for maximum efficiency and ROI</li>

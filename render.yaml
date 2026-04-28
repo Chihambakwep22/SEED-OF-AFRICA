@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: seed-of-africa-api
+    name: thale-quants-api
     env: python
     rootDir: backend
     buildCommand: |
@@ -21,12 +21,12 @@ services:
         value: .onrender.com
       - key: DATABASE_URL
         fromDatabase:
-          name: seedofafrica-db
+          name: thalequants_db
           property: connectionString
       - key: CORS_ALLOWED_ORIGINS
-        value: https://seed-of-africa-frontend.onrender.com
+        value: https://thale-quants-frontend.onrender.com
       - key: DEFAULT_FROM_EMAIL
-        value: noreply@seedofafrica.com
+        value: noreply@thale-quants.co.za
       - key: EMAIL_HOST
         value: smtp.sendgrid.net
       - key: EMAIL_PORT
@@ -40,13 +40,13 @@ services:
 
   - type: web
     env: static
-    name: seed-of-africa-frontend
+    name: thale-quants-frontend
     rootDir: frontend
     buildCommand: npm ci && npm run build
     staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
-        value: https://seed-of-africa-api.onrender.com/api
+        value: https://thale-quants-api.onrender.com/api
     routes:
       - type: rewrite
         source: /*
@@ -54,5 +54,5 @@ services:
     autoDeploy: true
 
 databases:
-  - name: seedofafrica-db
+  - name: thalequants-db
     plan: free

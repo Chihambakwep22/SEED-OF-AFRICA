@@ -1,10 +1,10 @@
-# 🚀 Quick Reference Guide - Seed of Africa
+# 🚀 Quick Reference Guide - Thale-Quants
 
 ## ⚡ 30-Second Start
 
 ### Option 1: Full Automated Setup
 ```bash
-cd "/home/princealex/Desktop/SEED OF AFRICA"
+cd "/home/princealex/Desktop/Thale-Quants"
 chmod +x setup.sh dev-start.sh
 ./setup.sh        # Setup everything
 ./dev-start.sh    # Start both servers
@@ -12,7 +12,7 @@ chmod +x setup.sh dev-start.sh
 
 ### Option 2: Docker (Fastest)
 ```bash
-cd "/home/princealex/Desktop/SEED OF AFRICA"
+cd "/home/princealex/Desktop/Thale-Quants"
 docker-compose up
 # Frontend: http://localhost:3000
 # Backend Admin: http://localhost:8000/admin
@@ -71,7 +71,7 @@ npm run dev
 ## 📁 Project Structure at a Glance
 
 ```
-SEED OF AFRICA/
+THALE-QUANTS/
 ├── frontend/          # React app (port 3000)
 │   ├── src/
 │   │   ├── components/    # 8 reusable components
@@ -229,13 +229,13 @@ Quick deployment options:
 
 ### Option 1: Docker + Cloud Run
 ```bash
-docker build -t seed-of-africa .
+docker build -t thale-quants .
 # Push to container registry and deploy
 ```
 
 ### Option 2: Heroku
 ```bash
-heroku create seed-of-africa
+heroku create thale-quants
 git push heroku main
 ```
 

@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=500)),
                 ('excerpt', models.CharField(max_length=500)),
                 ('content', models.TextField()),
-                ('author', models.CharField(default='Seed of Africa Team', max_length=255)),
+                ('author', models.CharField(default='Thale-Quants Team', max_length=255)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
                 ('featured', models.BooleanField(default=False)),

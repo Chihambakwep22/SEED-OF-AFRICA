@@ -81,7 +81,7 @@ export default function ForEntrepreneurs() {
               <strong>NQF-Aligned Certification:</strong> Formal recognition at NQF Level 4 or 5 combined with cutting-edge digital skills
             </li>
             <li>
-              <strong>Seed of Africa Credential:</strong> Certificate proving you're a tech-enabled partner, not just a supplier
+              <strong>Thale-Quants Credential:</strong> Certificate proving you're a tech-enabled partner, not just a supplier
             </li>
           </ul>
         </div>

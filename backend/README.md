@@ -1,6 +1,6 @@
-# Seed of Africa - Backend
+# Thale-Quants - Backend
 
-Django REST API backend for the Seed of Africa ESD platform.
+Django REST API backend for the Thale-Quants ESD platform.
 
 ## Setup
 

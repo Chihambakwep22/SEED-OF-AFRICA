@@ -22,7 +22,7 @@ export default function Navbar() {
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
           <span className="logo-icon">🌱</span>
-          <span className="logo-text">Seed of Africa</span>
+          <span className="logo-text">Thale-Quants</span>
         </Link>
 
         <button 

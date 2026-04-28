@@ -1,4 +1,4 @@
-# Seed of Africa API Documentation
+# Thale-Quants API Documentation
 
 ## Base URL
 
@@ -139,7 +139,7 @@ GET /api/blog-posts/featured/
     "title": "How AI is Disrupting ESD in South Africa",
     "excerpt": "Exploring the transformation of supplier development...",
     "content": "Full blog post content here...",
-    "author": "Seed of Africa Team",
+    "author": "Thale-Quants Team",
     "created_at": "2024-01-10T09:00:00Z",
     "featured": true,
     "published": true
@@ -214,7 +214,7 @@ GET /api/testimonials/
     "client_name": "Thabo Mkhize",
     "client_company": "TechSupply Solutions",
     "client_role": "Managing Director",
-    "testimonial": "Working with Seed of Africa transformed our business...",
+    "testimonial": "Working with Thale-Quants transformed our business...",
     "rating": 5,
     "image": "/media/testimonials/thabo-mkhize.jpg"
   }

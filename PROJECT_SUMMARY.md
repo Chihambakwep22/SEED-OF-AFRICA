@@ -1,8 +1,8 @@
-# Seed of Africa - Project Summary
+# Thale-Quants - Project Summary
 
 ## 🌱 Overview
 
-Seed of Africa is a comprehensive full-stack web application designed to disrupt traditional Enterprise and Supplier Development (ESD) through AI-powered solutions and strategic mentorship.
+Thale-Quants is a comprehensive full-stack web application designed to disrupt traditional Enterprise and Supplier Development (ESD) through AI-powered solutions and strategic mentorship.
 
 **Main Headline:** Beyond the Tick-Box: AI-Powered ESD for the Future of Africa
 
@@ -11,7 +11,7 @@ Seed of Africa is a comprehensive full-stack web application designed to disrupt
 ## 📁 Project Structure
 
 ```
-SEED OF AFRICA/
+THALE-QUANTS/
 ├── frontend/                  # React + Vite SPA
 │   ├── src/
 │   │   ├── components/       # Reusable React components
@@ -63,14 +63,14 @@ SEED OF AFRICA/
 
 **Linux/Mac:**
 ```bash
-cd "/home/princealex/Desktop/SEED OF AFRICA"
+cd "/home/princealex/Desktop/Thale-Quants"
 chmod +x setup.sh
 ./setup.sh
 ```
 
 **Windows:**
 ```bash
-cd "C:\Users\YourUsername\Desktop\SEED OF AFRICA"
+cd "C:\Users\YourUsername\Desktop\Thale-Quants"
 setup.bat
 ```
 
@@ -325,7 +325,7 @@ npm run build  # Check for build errors
 
 ## 📄 License
 
-© 2024 Seed of Africa. All rights reserved.
+© 2024 Thale-Quants. All rights reserved.
 
 ---
 

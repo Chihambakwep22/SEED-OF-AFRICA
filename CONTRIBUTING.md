@@ -207,8 +207,8 @@ Before merging to main:
 ## Environment Setup for Contributors
 
 1. Fork repository
-2. Clone fork: `git clone https://github.com/your-username/seed-of-africa.git`
-3. Add upstream: `git remote add upstream https://github.com/seedofafrica/seed-of-africa.git`
+2. Clone fork: `git clone https://github.com/your-username/thale-quants.git`
+3. Add upstream: `git remote add upstream https://github.com/thale-quants/thale-quants.git`
 4. Create branch from upstream: `git checkout -b feature/my-feature`
 5. Keep branch updated: `git fetch upstream && git rebase upstream/main`
 
@@ -260,8 +260,8 @@ Other approaches considered
 - Check existing issues and PRs
 - Read documentation
 - Ask in discussions section
-- Email: contribute@seedofafrica.co.za
+- Email: contribute@thale-quants.co.za
 
 ---
 
-Thank you for contributing to Seed of Africa! 🌱
+Thank you for contributing to Thale-Quants! 🌱

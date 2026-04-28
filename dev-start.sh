@@ -2,7 +2,7 @@
 
 # Quick development server startup script
 
-echo "🌱 Starting Seed of Africa Development Servers"
+echo "🌱 Starting Thale-Quants Development Servers"
 echo "================================================"
 echo ""
 

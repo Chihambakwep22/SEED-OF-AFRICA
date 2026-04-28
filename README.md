@@ -1,11 +1,11 @@
-# Seed of Africa - Full Stack Project
+# Thale-Quants - Full Stack Project
 
 AI-Powered Enterprise & Supplier Development Platform for the Future of Africa
 
 ## Project Structure
 
 ```
-SEED OF AFRICA/
+THALE-QUANTS/
 ├── frontend/              # React + Vite application
 │   ├── src/
 │   │   ├── components/   # Reusable React components
@@ -202,4 +202,4 @@ python manage.py createsuperuser
 
 ## License
 
-© 2024 Seed of Africa. All rights reserved.
+© 2024 Thale-Quants. All rights reserved.

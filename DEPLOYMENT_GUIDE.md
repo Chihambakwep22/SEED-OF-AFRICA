@@ -26,7 +26,7 @@ web: gunicorn seedofafrica.wsgi
 
 3. Deploy:
 ```bash
-heroku create seed-of-africa
+heroku create thale-quants
 git push heroku main
 heroku run python manage.py migrate
 ```
@@ -58,13 +58,13 @@ python manage.py migrate
 
 1. Build image:
 ```bash
-docker build -t seed-of-africa-backend .
+docker build -t thale-quants-backend .
 ```
 
 2. Push to Cloud Registry:
 ```bash
-docker tag seed-of-africa-backend:latest gcr.io/project-id/seed-of-africa-backend:latest
-docker push gcr.io/project-id/seed-of-africa-backend:latest
+docker tag thale-quants-backend:latest gcr.io/project-id/thale-quants-backend:latest
+docker push gcr.io/project-id/thale-quants-backend:latest
 ```
 
 3. Deploy to Cloud Run
@@ -216,7 +216,7 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: |
-          git push https://heroku:$HEROKU_API_KEY@git.heroku.com/seed-of-africa.git main
+          git push https://heroku:$HEROKU_API_KEY@git.heroku.com/thale-quants.git main
 ```
 
 ## Backup Strategy

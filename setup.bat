@@ -1,9 +1,9 @@
 @echo off
-REM Seed of Africa - Complete Development Environment Setup for Windows
+REM Thale-Quants - Complete Development Environment Setup for Windows
 
 setlocal enabledelayedexpansion
 
-echo 🌱 Seed of Africa - Full Stack Setup
+echo 🌱 Thale-Quants - Full Stack Setup
 echo ====================================
 echo.
 

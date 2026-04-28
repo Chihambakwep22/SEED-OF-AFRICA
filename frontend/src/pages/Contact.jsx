@@ -85,7 +85,7 @@ export default function Contact() {
             </div>
             <div className="info-item">
               <h3>📧 Email</h3>
-              <p>info@seedofafrica.co.za</p>
+              <p>info@thale-quants.co.za</p>
             </div>
             <div className="info-item">
               <h3>📱 Phone</h3>

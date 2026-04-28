@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Seed of Africa - Complete Development Environment Setup
+# Thale-Quants - Complete Development Environment Setup
 
-echo "🌱 Seed of Africa - Full Stack Setup"
+echo "🌱 Thale-Quants - Full Stack Setup"
 echo "===================================="
 echo ""
 

@@ -1,6 +1,6 @@
-# Seed of Africa - Frontend
+# Thale-Quants - Frontend
 
-React + Vite frontend for the Seed of Africa ESD platform.
+React + Vite frontend for the Thale-Quants ESD platform.
 
 ## Project Structure
 

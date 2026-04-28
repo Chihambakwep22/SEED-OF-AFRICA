@@ -1,11 +1,11 @@
 services:
   - type: web
-    name: seed-of-africa-api
+    name: thale-quants-api
     env: python
     buildCommand: |
       pip install -r requirements.txt
       python manage.py collectstatic --noinput
-      python manage.py migrate --noinput
+      python manage.py migrate
     startCommand: |
       gunicorn seedofafrica.wsgi:application --bind 0.0.0.0:$PORT --workers=2 --timeout=60
     healthCheckPath: /api/health/
@@ -16,15 +16,15 @@ services:
       - key: SECRET_KEY
         generateValue: true
       - key: ALLOWED_HOSTS
-        value: "seed-of-africa-api.onrender.com"
+        value: "thale-quants-api.onrender.com"
       - key: DATABASE_URL
         fromDatabase:
-          name: seedofafrica_db
+          name: thalequants_db
           property: connectionString
       - key: CORS_ALLOWED_ORIGINS
-        value: "https://seed-of-africa-frontend.onrender.com"
+        value: "https://thale-quants-frontend.onrender.com"
       - key: DEFAULT_FROM_EMAIL
-        value: noreply@seedofafrica.com
+        value: noreply@thale-quants.co.za
       - key: EMAIL_HOST
         value: smtp.sendgrid.net
       - key: EMAIL_PORT
@@ -40,9 +40,9 @@ services:
       memory: 512Mi
 
 databases:
-  - name: seedofafrica_db
+  - name: thalequants_db
     type: postgres
     env: postgres
     plan: free
-    databaseName: seedofafrica
-    user: seedofafrica_user
+    databaseName: thalequants
+    user: thalequants_user

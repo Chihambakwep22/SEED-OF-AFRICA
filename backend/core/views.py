@@ -28,7 +28,7 @@ class ContactMessageViewSet(viewsets.ModelViewSet):
         # Send confirmation email
         try:
             send_mail(
-                subject='We received your inquiry - Seed of Africa',
+                subject='We received your inquiry - Thale-Quants',
                 message=f'Thank you {contact.name}, we will get back to you soon.',
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[contact.email],

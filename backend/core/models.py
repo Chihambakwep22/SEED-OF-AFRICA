@@ -66,7 +66,7 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=500)
     excerpt = models.CharField(max_length=500)
     content = models.TextField()
-    author = models.CharField(max_length=255, default='Seed of Africa Team')
+    author = models.CharField(max_length=255, default='Thale-Quants Team')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     featured = models.BooleanField(default=False)
