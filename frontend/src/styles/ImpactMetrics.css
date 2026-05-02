@@ -196,6 +196,7 @@
   .metric-icon {
     width: 50px;
     height: 50px;
+    margin-bottom: var(--spacing-md);
   }
 
   .metric-value {
@@ -209,5 +210,9 @@
   .impact-metrics::before,
   .impact-metrics::after {
     display: none;
+  }
+
+  .metric-card {
+    text-align: left;
   }
 }

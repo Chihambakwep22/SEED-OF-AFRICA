@@ -205,14 +205,20 @@
 
   .card-header {
     gap: var(--spacing-sm);
+    align-items: flex-start;
   }
 
   .card-icon {
-    font-size: 2rem;
+    width: 2.25rem;
+    height: 2.25rem;
   }
 
   .card-header h3 {
     font-size: 1.25rem;
+  }
+
+  .serve-card li {
+    align-items: flex-start;
   }
 
   .who-we-serve::before {

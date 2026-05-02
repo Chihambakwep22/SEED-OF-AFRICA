@@ -300,6 +300,14 @@
     padding: 2.5rem 1.5rem;
   }
 
+  .hub-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .section-description {
+    font-size: 1rem;
+  }
+
   .resources-grid,
   .blog-grid {
     gap: 1.25rem;
@@ -308,5 +316,12 @@
   .resource-card,
   .blog-card {
     padding: 1.5rem;
+  }
+
+  .webinar-meta,
+  .blog-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
   }
 }

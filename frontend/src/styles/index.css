@@ -414,6 +414,68 @@ p {
   .icon-list-item::before {
     top: 0.8rem;
   }
+
+  /* Shared mobile layout tightening across pages */
+  .hero,
+  .page-hero,
+  .cta-section,
+  .webinar-signup,
+  .case-studies,
+  .who-we-serve,
+  .core-advantages,
+  .impact-metrics,
+  .knowledge-hub .hub-section,
+  .contact-section {
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
+
+  .section-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .pillars-grid,
+  .service-cards,
+  .metrics-grid,
+  .cases-grid,
+  .resources-grid,
+  .blog-grid,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-title,
+  .hero-subtitle,
+  .cta-title,
+  .cta-text,
+  .section-title,
+  .section-subtitle {
+    text-wrap: balance;
+  }
+
+  .webinar-copy,
+  .webinar-form,
+  .contact-info,
+  .contact-form,
+  .case-card,
+  .metric-card,
+  .resource-card,
+  .blog-card,
+  .pillar-card,
+  .serve-card {
+    padding: 1.25rem;
+  }
+
+  .btn-xl,
+  .btn-lg,
+  .btn-sm {
+    width: 100%;
+  }
 }
 
 .btn-xl {

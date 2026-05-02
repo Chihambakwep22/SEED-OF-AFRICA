@@ -239,17 +239,33 @@
 
   .case-header {
     gap: var(--spacing-sm);
+    align-items: flex-start;
   }
 
-  .case-icon {
-    font-size: 2rem;
+  .case-header .company-logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.8rem;
   }
 
   .case-card h3 {
     font-size: 1.25rem;
   }
 
+  .case-heading-group {
+    gap: 0.1rem;
+  }
+
+  .case-sector {
+    font-size: 0.8rem;
+  }
+
   .case-result {
     padding: var(--spacing-md);
+  }
+
+  .roi-badge {
+    width: 100%;
+    justify-content: center;
   }
 }
