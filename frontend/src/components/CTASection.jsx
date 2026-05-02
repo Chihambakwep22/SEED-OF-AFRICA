@@ -16,17 +16,17 @@ export default function CTASection() {
       <div className="cta-container">
         <div ref={contentRef.ref} className="cta-content">
           <div className="cta-icon-wrapper">
-            <span className="cta-icon">🚀</span>
+            <span className="cta-icon blue-circle-icon" aria-hidden="true"></span>
             <div className="cta-icon-ring"></div>
           </div>
           
           <h2 className="cta-title">
-            Ready to build a future-proof supply chain?
+            Ready to build a resilient growth ecosystem?
           </h2>
           
           <p className="cta-text">
-            Join hundreds of enterprises and entrepreneurs transforming their business with 
-            <span className="text-gradient"> AI-powered ESD</span>
+            Partner with a team focused on business capability, operational clarity, and measurable
+            impact.
           </p>
           
           <div className="cta-buttons">
@@ -39,9 +39,9 @@ export default function CTASection() {
           </div>
 
           <div className="cta-features">
-            <span className="feature-tag">✓ No Commitment</span>
-            <span className="feature-tag">✓ Free Strategy Call</span>
-            <span className="feature-tag">✓ AI Readiness Assessment</span>
+            <span className="feature-tag">No Commitment</span>
+            <span className="feature-tag">Free Strategy Call</span>
+            <span className="feature-tag">AI Readiness Assessment</span>
           </div>
         </div>
       </div>

@@ -4,17 +4,14 @@ import '../styles/CoreAdvantages.css'
 export default function CoreAdvantages() {
   const pillars = [
     {
-      icon: '🤖',
       title: 'AI Strategy',
       description: 'Data-driven intelligence powering predictive scorecard optimization and supplier analytics'
     },
     {
-      icon: '🔗',
       title: 'Smart Supply Chains',
       description: 'Tech-enabled ecosystems connecting enterprises with future-ready suppliers'
     },
     {
-      icon: '📊',
       title: 'Real Impact Data',
       description: 'Live dashboards tracking revenue growth, job creation, and sustainable outcomes'
     }
@@ -33,8 +30,7 @@ export default function CoreAdvantages() {
             {pillars.map((pillar, index) => (
               <div key={index} className="pillar-card">
                 <div className="pillar-icon-wrapper">
-                  <div className="pillar-icon-bg"></div>
-                  <span className="pillar-icon">{pillar.icon}</span>
+                  <span className="pillar-icon blue-circle-icon" aria-hidden="true"></span>
                 </div>
                 <h3 className="pillar-title">{pillar.title}</h3>
                 <p className="pillar-description">{pillar.description}</p>

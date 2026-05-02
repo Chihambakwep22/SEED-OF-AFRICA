@@ -27,22 +27,22 @@ export default function ForEntrepreneurs() {
     <div className="for-entrepreneurs">
       <section className="page-hero">
         <h1>For Entrepreneurs</h1>
-        <p>Get a 10-year head start using today's AI technology</p>
+        <p>Strengthen your business with practical AI, finance, and digital capability</p>
       </section>
 
       <section ref={(el) => (sectionsRef.current[0] = el)} className="service-section">
         <div className="service-card">
-          <div className="card-icon">🚀</div>
+          <div className="card-icon blue-circle-icon" aria-hidden="true"></div>
           <h2>AI-Driven Incubation & Acceleration</h2>
           <p className="card-subtitle">Give yourself a 10-year head start using today's technology</p>
           <ul className="features-list">
-            <li>
+            <li className="icon-list-item">
               <strong>AI-Fundamentals Program:</strong> Master business through our Entrepreneur Fundamentals Learner Workbook with AI tools to automate operations
             </li>
-            <li>
+            <li className="icon-list-item">
               <strong>Dynamic Business Model Canvas:</strong> Build a living strategy that uses AI to analyse market trends and customer segments in real-time
             </li>
-            <li>
+            <li className="icon-list-item">
               <strong>Smart Operational Excellence:</strong> Implement AI-powered systems and SOPs enabling small teams to produce large-scale output
             </li>
           </ul>
@@ -51,17 +51,17 @@ export default function ForEntrepreneurs() {
 
       <section ref={(el) => (sectionsRef.current[1] = el)} className="service-section">
         <div className="service-card">
-          <div className="card-icon">👥</div>
+          <div className="card-icon blue-circle-icon" aria-hidden="true"></div>
           <h2>Virtual Strategic Mentorship</h2>
           <p className="card-subtitle">High-level wisdom delivered anywhere</p>
           <ul className="features-list">
-            <li>
+            <li className="icon-list-item">
               <strong>1-on-1 Precision Coaching:</strong> Virtual sessions focused on strategy, change management (ADKAR), and scaling complexities
             </li>
-            <li>
+            <li className="icon-list-item">
               <strong>Disruptive Leadership:</strong> Transform from owner-operator to tech-forward CEO
             </li>
-            <li>
+            <li className="icon-list-item">
               <strong>Personalized Growth Path:</strong> Custom roadmaps aligned with your business goals and market opportunities
             </li>
           </ul>
@@ -70,17 +70,17 @@ export default function ForEntrepreneurs() {
 
       <section ref={(el) => (sectionsRef.current[2] = el)} className="service-section">
         <div className="service-card">
-          <div className="card-icon">📚</div>
+          <div className="card-icon blue-circle-icon" aria-hidden="true"></div>
           <h2>Masterclasses: The AI Advantage</h2>
           <p className="card-subtitle">Skills that make you un-ignorable</p>
           <ul className="features-list">
-            <li>
+            <li className="icon-list-item">
               <strong>AI for Business Series:</strong> Practical training on AI for financial mastery, automated marketing, and operational efficiency
             </li>
-            <li>
+            <li className="icon-list-item">
               <strong>NQF-Aligned Certification:</strong> Formal recognition at NQF Level 4 or 5 combined with cutting-edge digital skills
             </li>
-            <li>
+            <li className="icon-list-item">
               <strong>Thale-Quants Credential:</strong> Certificate proving you're a tech-enabled partner, not just a supplier
             </li>
           </ul>

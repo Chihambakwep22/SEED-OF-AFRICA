@@ -114,6 +114,31 @@
   box-shadow: var(--shadow-lg);
 }
 
+.location-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.location-list li {
+  position: relative;
+  padding-left: 1.6rem;
+  color: var(--text-secondary);
+}
+
+.location-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2f6bff 0%, #7f1d3f 100%);
+}
+
 .contact-info h2 {
   font-size: 1.75rem;
   color: var(--primary);
@@ -199,6 +224,10 @@
   gap: 10px;
   animation: fadeIn 0.3s ease-out;
   box-shadow: 0 4px 12px rgba(40, 167, 69, 0.15);
+}
+
+.success-message .blue-circle-icon {
+  flex-shrink: 0;
 }
 
 /* Form Groups */

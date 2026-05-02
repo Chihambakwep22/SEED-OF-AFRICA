@@ -72,7 +72,7 @@ export default function Contact() {
     <div className="contact">
       <section className="page-hero">
         <h1>Get In Touch</h1>
-        <p>Let's discuss how we can transform your supply chain</p>
+        <p>Let's discuss how ThaleQuants can support your growth strategy</p>
       </section>
 
       <section className="contact-section">
@@ -80,19 +80,23 @@ export default function Contact() {
           <div className="contact-info reveal-left">
             <h2>Contact Information</h2>
             <div className="info-item">
-              <h3>📍 Location</h3>
-              <p>Johannesburg, South Africa</p>
+              <h3>Location</h3>
+              <ul className="location-list">
+                <li>Gauteng</li>
+                <li>Limpopo</li>
+                <li>KwaZulu-Natal</li>
+              </ul>
             </div>
             <div className="info-item">
-              <h3>📧 Email</h3>
-              <p>info@thale-quants.co.za</p>
+              <h3>Email</h3>
+              <p>info.thalequants@gmail.com</p>
             </div>
             <div className="info-item">
-              <h3>📱 Phone</h3>
+              <h3>Phone</h3>
               <p>+27 (0) 11 XXX XXXX</p>
             </div>
             <div className="info-item">
-              <h3>🕐 Business Hours</h3>
+              <h3>Business Hours</h3>
               <p>Monday - Friday: 8:00 AM - 5:00 PM (SAST)</p>
             </div>
           </div>
@@ -102,7 +106,8 @@ export default function Contact() {
             
             {submitted && (
               <div className="success-message">
-                <span>✓</span> Thank you! We'll be in touch soon.
+                <span className="blue-circle-icon blue-circle-icon--sm" aria-hidden="true"></span>
+                Thank you! We'll be in touch soon.
               </div>
             )}
 

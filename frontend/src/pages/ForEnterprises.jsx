@@ -27,22 +27,22 @@ export default function ForEnterprises() {
     <div className="for-enterprises">
       <section className="page-hero">
         <h1>For Enterprises</h1>
-        <p>Transform your ESD strategy from compliance burden to competitive advantage</p>
+        <p>Build a measurable enterprise and supplier development strategy that supports growth</p>
       </section>
 
       <section ref={(el) => (sectionsRef.current[0] = el)} className="service-section">
         <div className="service-card">
-          <div className="card-icon">📊</div>
+          <div className="card-icon blue-circle-icon" aria-hidden="true"></div>
           <h2>AI-Enhanced ESD Strategy & Compliance</h2>
           <p className="card-subtitle">Move from passive compliance to active competitive advantage</p>
           <ul className="features-list">
-            <li>
+            <li className="icon-list-item">
               <strong>Predictive Scorecard Optimization:</strong> Data-driven modelling ensures 100% ESD spend absorption with zero wasted capital
             </li>
-            <li>
+            <li className="icon-list-item">
               <strong>Bespoke Tech-Forward Design:</strong> Programs that modernize SMEs, ensuring your suppliers are technologically advanced
             </li>
-            <li>
+            <li className="icon-list-item">
               <strong>Intelligent Regulatory Guidance:</strong> Real-time navigation of Codes of Good Practice with proactive policy analysis
             </li>
           </ul>
@@ -51,17 +51,17 @@ export default function ForEnterprises() {
 
       <section ref={(el) => (sectionsRef.current[1] = el)} className="service-section">
         <div className="service-card">
-          <div className="card-icon">🔍</div>
+          <div className="card-icon blue-circle-icon" aria-hidden="true"></div>
           <h2>Intelligent Supplier Scouting & Vetting</h2>
           <p className="card-subtitle">Building a Future-Proof supply chain</p>
           <ul className="features-list">
-            <li>
+            <li className="icon-list-item">
               <strong>Precision Due Diligence:</strong> Analyse operational scalability and digital readiness of every supplier
             </li>
-            <li>
+            <li className="icon-list-item">
               <strong>Market-Ready Database:</strong> Access curated black-owned businesses vetted for quality, compliance, and technological agility
             </li>
-            <li>
+            <li className="icon-list-item">
               <strong>Strategic Gap Identification:</strong> AI-driven diagnostics pinpoint where suppliers are falling behind with actionable roadmaps
             </li>
           </ul>
@@ -70,17 +70,17 @@ export default function ForEnterprises() {
 
       <section ref={(el) => (sectionsRef.current[2] = el)} className="service-section">
         <div className="service-card">
-          <div className="card-icon">📈</div>
+          <div className="card-icon blue-circle-icon" aria-hidden="true"></div>
           <h2>High-Fidelity M&E and Impact Reporting</h2>
           <p className="card-subtitle">Radical transparency and measurable ROI</p>
           <ul className="features-list">
-            <li>
+            <li className="icon-list-item">
               <strong>Live Impact Dashboards:</strong> Real-time data on investment performance without waiting for year-end reports
             </li>
-            <li>
+            <li className="icon-list-item">
               <strong>Beyond the Spend:</strong> Track deep value including revenue growth in Rands, digital adoption rates, and job creation
             </li>
-            <li>
+            <li className="icon-list-item">
               <strong>Success Stories 2.0:</strong> Data-backed case studies proving how intervention transforms suppliers into high-tech partners
             </li>
           </ul>

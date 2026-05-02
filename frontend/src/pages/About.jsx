@@ -43,19 +43,19 @@ export default function About() {
         <h2>Our Approach</h2>
         <div className="approach-grid">
           <div className="approach-card">
-            <h3>🎯 Strategic Alignment</h3>
+            <h3>Strategic Alignment</h3>
             <p>We align ESD initiatives with your business objectives, moving beyond compliance to competitive advantage.</p>
           </div>
           <div className="approach-card">
-            <h3>🤖 AI-Powered Solutions</h3>
+            <h3>AI-Powered Solutions</h3>
             <p>Leveraging AI for predictive analytics, supplier scouting, and performance optimization.</p>
           </div>
           <div className="approach-card">
-            <h3>👥 Expert Mentorship</h3>
+            <h3>Expert Mentorship</h3>
             <p>Access to industry veterans who understand both business and technology transformation.</p>
           </div>
           <div className="approach-card">
-            <h3>📊 Data-Driven Results</h3>
+            <h3>Data-Driven Results</h3>
             <p>Real-time dashboards and transparent reporting for measurable impact and ROI.</p>
           </div>
         </div>
@@ -64,11 +64,11 @@ export default function About() {
       <section ref={(el) => (sectionsRef.current[2] = el)} className="about-section">
         <h2>Why Choose Thale-Quants?</h2>
         <ul className="benefits-list">
-          <li>We don't just comply; we create competitive advantage</li>
-          <li>AI-enhanced processes for maximum efficiency and ROI</li>
-          <li>Proven track record transforming suppliers into tech-enabled partners</li>
-          <li>End-to-end support from strategy to execution and measurement</li>
-          <li>Deep expertise in South African regulatory environment and market dynamics</li>
+          <li className="icon-list-item">We don't just comply; we create competitive advantage</li>
+          <li className="icon-list-item">AI-enhanced processes for maximum efficiency and ROI</li>
+          <li className="icon-list-item">Proven track record transforming suppliers into tech-enabled partners</li>
+          <li className="icon-list-item">End-to-end support from strategy to execution and measurement</li>
+          <li className="icon-list-item">Deep expertise in South African regulatory environment and market dynamics</li>
         </ul>
       </section>
 

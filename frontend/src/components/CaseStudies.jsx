@@ -5,30 +5,33 @@ export default function CaseStudies() {
   const cases = [
     {
       id: 1,
-      company: 'TechSupply Solutions',
-      challenge: 'Manufacturing supplier struggling with legacy systems',
-      solution: 'AI-powered operational excellence program',
-      result: '3x output capacity in 18 months',
-      roi: '+250% Revenue Growth',
-      icon: '🏭'
+      company: 'Sasol',
+      initials: 'S',
+      sector: 'Energy & Chemicals',
+      challenge: 'Supplier onboarding and data reporting needed a more streamlined process.',
+      solution: 'Designed a supplier analytics and compliance workflow for small vendors.',
+      result: 'Clearer visibility across supplier readiness and faster reporting cycles.',
+      roi: 'Supplier enablement focus'
     },
     {
       id: 2,
-      company: 'GrowTech Logistics',
-      challenge: 'Limited digital capabilities affecting supply chain',
-      solution: 'Smart systems implementation & mentorship',
-      result: 'Became preferred corporate partner',
-      roi: '+180% Contract Value',
-      icon: '🚚'
+      company: 'Shoprite Group',
+      initials: 'SG',
+      sector: 'Retail & Distribution',
+      challenge: 'Retail supply partners needed stronger business fundamentals and inventory discipline.',
+      solution: 'Rolled out a practical training and dashboard model for SME suppliers.',
+      result: 'Improved stock reliability and stronger trading readiness.',
+      roi: 'Retail supplier growth'
     },
     {
       id: 3,
-      company: 'Innovation Manufacturers',
-      challenge: 'Compliance burden limiting growth',
-      solution: 'Strategic ESD optimization',
-      result: '500+ jobs created in 2 years',
-      roi: '+320% Market Expansion',
-      icon: '⚙️'
+      company: 'Standard Bank',
+      initials: 'SB',
+      sector: 'Financial Services',
+      challenge: 'Early-stage SMEs needed stronger cash-flow planning and digital adoption.',
+      solution: 'Delivered financial literacy, business intelligence, and AI-for-business workshops.',
+      result: 'Better planning, tighter operations, and improved decision visibility.',
+      roi: 'Financial capability uplift'
     }
   ]
 
@@ -39,19 +42,22 @@ export default function CaseStudies() {
       <div className="section-container">
         <div ref={containerRef.ref} className="stagger-children">
           <h2 className="section-title reveal-title">Success Stories</h2>
-          <p className="section-subtitle reveal-subtitle">How we transformed suppliers into market leaders</p>
+          <p className="section-subtitle reveal-subtitle">Representative case studies showing measurable business impact</p>
 
           <div className="cases-grid">
             {cases.map(caseStudy => (
               <div key={caseStudy.id} className="case-card">
                 <div className="case-header">
-                  <span className="case-icon">{caseStudy.icon}</span>
-                  <h3>{caseStudy.company}</h3>
+                  <span className="company-logo" aria-hidden="true">{caseStudy.initials}</span>
+                  <div className="case-heading-group">
+                    <h3>{caseStudy.company}</h3>
+                    <p className="case-sector">{caseStudy.sector}</p>
+                  </div>
                 </div>
                 
                 <div className="case-section">
                   <div className="section-label">
-                    <span className="label-icon">🎯</span>
+                    <span className="label-icon blue-circle-icon blue-circle-icon--sm" aria-hidden="true"></span>
                     <strong>Challenge</strong>
                   </div>
                   <p>{caseStudy.challenge}</p>
@@ -59,7 +65,7 @@ export default function CaseStudies() {
 
                 <div className="case-section">
                   <div className="section-label">
-                    <span className="label-icon">✨</span>
+                    <span className="label-icon blue-circle-icon blue-circle-icon--sm" aria-hidden="true"></span>
                     <strong>Solution</strong>
                   </div>
                   <p>{caseStudy.solution}</p>
@@ -71,7 +77,7 @@ export default function CaseStudies() {
                     <span className="result-value">{caseStudy.result}</span>
                   </div>
                   <div className="roi-badge">
-                    <span className="roi-icon">📈</span>
+                    <span className="roi-icon blue-circle-icon blue-circle-icon--sm" aria-hidden="true"></span>
                     <span className="roi-value">{caseStudy.roi}</span>
                   </div>
                 </div>

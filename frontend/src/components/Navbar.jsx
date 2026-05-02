@@ -21,7 +21,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
-          <span className="logo-icon">🌱</span>
+          <span className="logo-badge" aria-hidden="true">TQ</span>
           <span className="logo-text">Thale-Quants</span>
         </Link>
 

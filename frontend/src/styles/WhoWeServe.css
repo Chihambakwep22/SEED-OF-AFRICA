@@ -150,6 +150,10 @@
   gap: var(--spacing-sm);
 }
 
+.serve-card .icon-list-item::before {
+  top: 0.75rem;
+}
+
 /* Enhanced button with arrow */
 .btn-arrow {
   display: inline-flex;

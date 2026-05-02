@@ -2,8 +2,120 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
+  isolation: isolate;
 }
 
 .main-content {
   flex: 1;
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+/* Make page surfaces translucent so the animated wave background shows through. */
+.main-content {
+  --white: rgba(255, 255, 255, 0.9);
+  --bg-white: rgba(255, 255, 255, 0.9);
+  --bg-light: rgba(248, 249, 252, 0.86);
+  --bg-tertiary: rgba(243, 244, 246, 0.84);
+}
+
+.wave-background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(248, 249, 252, 0.48) 0%, rgba(241, 243, 249, 0.42) 100%),
+    radial-gradient(circle at 92% 96%, rgba(122, 85, 103, 0.12) 0 42px, transparent 43px),
+    radial-gradient(circle at 90% 94%, rgba(122, 85, 103, 0.07) 0 62px, transparent 63px);
+}
+
+.wave-svg {
+  position: absolute;
+  top: 6vh;
+  left: -18%;
+  width: 120vw;
+  min-width: 640px;
+  height: 80vh;
+  max-height: 920px;
+}
+
+.wave-svg path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 2.2;
+  paint-order: stroke;
+}
+
+.wave-svg-main path {
+  stroke: url(#waveGradientA);
+  opacity: 0.72;
+  stroke-width: 2.4;
+}
+
+.wave-svg-soft {
+  bottom: -4%;
+  left: -10%;
+  width: 110vw;
+  opacity: 0.62;
+  transform: translateY(6%);
+}
+
+.wave-svg-soft path {
+  stroke: url(#waveGradientB);
+  opacity: 0.46;
+  stroke-width: 1.8;
+}
+
+@keyframes waveDrift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(2.8%, -2%, 0);
+  }
+}
+
+@keyframes waveDriftSoft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-2.4%, 2.4%, 0);
+  }
+}
+
+.wave-svg-main {
+  animation: waveDrift 16s ease-in-out infinite alternate;
+}
+
+.wave-svg-soft {
+  animation: waveDriftSoft 19s ease-in-out infinite alternate;
+}
+
+.app > *:not(.wave-background) {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .wave-svg {
+    left: -22%;
+    width: 120vw;
+    min-width: 0;
+    height: 56vh;
+  }
+
+  .wave-svg-soft {
+    left: -28%;
+    width: 128vw;
+    height: 52vh;
+  }
+
+  .wave-svg path {
+    stroke-width: 1.05;
+  }
 }

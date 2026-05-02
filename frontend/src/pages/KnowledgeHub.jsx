@@ -52,7 +52,7 @@ export default function KnowledgeHub() {
       </section>
 
       <section ref={(el) => (sectionsRef.current[0] = el)} className="hub-section">
-        <h2>📋 Smart Templates</h2>
+        <h2>Smart Templates</h2>
         <p className="section-description">AI-ready frameworks and automated tools to accelerate your growth</p>
         <div className="resources-grid">
           {templates.map(template => (
@@ -67,7 +67,7 @@ export default function KnowledgeHub() {
       </section>
 
       <section ref={(el) => (sectionsRef.current[1] = el)} className="hub-section">
-        <h2>🎥 Innovation Webinars</h2>
+        <h2>Innovation Webinars</h2>
         <p className="section-description">Recorded sessions on ESD, LED, and emerging technology</p>
         <div className="resources-grid">
           {webinars.map(webinar => (
@@ -84,7 +84,7 @@ export default function KnowledgeHub() {
       </section>
 
       <section ref={(el) => (sectionsRef.current[2] = el)} className="hub-section">
-        <h2>📝 The Disruption Blog</h2>
+        <h2>The Disruption Blog</h2>
         <p className="section-description">Insights on AI, ESD, and the future of South African business</p>
         <div className="blog-grid">
           {blogPosts.map(post => (

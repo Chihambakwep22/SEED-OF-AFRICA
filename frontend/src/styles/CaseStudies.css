@@ -72,15 +72,25 @@
   margin-bottom: var(--spacing-lg);
 }
 
-.case-icon {
-  font-size: 2.5rem;
-  line-height: 1;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.company-logo {
+  font-size: 0.95rem;
+  color: var(--white);
 }
 
-.case-card:hover .case-icon {
-  transform: scale(1.1) rotate(10deg);
+.case-heading-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.case-heading-group h3 {
+  margin: 0;
+}
+
+.case-sector {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
 .case-card h3 {
@@ -115,7 +125,7 @@
 }
 
 .label-icon {
-  font-size: 1.25rem;
+  font-size: 0;
 }
 
 .section-label strong {
@@ -186,7 +196,11 @@
 }
 
 .roi-icon {
-  font-size: 1rem;
+  font-size: 0;
+}
+
+.roi-badge .blue-circle-icon--sm {
+  margin-right: 0.1rem;
 }
 
 .roi-value {

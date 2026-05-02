@@ -17,14 +17,14 @@ export default function WhoWeServe() {
           <div className="service-cards">
             <div className="serve-card">
               <div className="card-header">
-                <span className="card-icon">🏢</span>
+                <span className="card-icon blue-circle-icon" aria-hidden="true"></span>
                 <h3>For Enterprises</h3>
               </div>
               <p>Strategic partners seeking to transform ESD from compliance burden into competitive advantage.</p>
               <ul>
-                <li>✓ Optimized ESD spend with measurable ROI</li>
-                <li>✓ Tech-enabled supplier networks</li>
-                <li>✓ Real-time impact dashboards</li>
+                <li className="icon-list-item">Optimized ESD spend with measurable ROI</li>
+                <li className="icon-list-item">Tech-enabled supplier networks</li>
+                <li className="icon-list-item">Real-time impact dashboards</li>
               </ul>
               <Link to="/for-enterprises" className="btn btn-secondary btn-arrow">
                 Learn More
@@ -36,14 +36,14 @@ export default function WhoWeServe() {
 
             <div className="serve-card">
               <div className="card-header">
-                <span className="card-icon">💡</span>
+                <span className="card-icon blue-circle-icon" aria-hidden="true"></span>
                 <h3>For Entrepreneurs</h3>
               </div>
               <p>Ambitious business owners ready to scale with AI-powered tools and world-class mentorship.</p>
               <ul>
-                <li>✓ AI-driven acceleration programs</li>
-                <li>✓ Strategic mentorship & coaching</li>
-                <li>✓ NQF-aligned certifications</li>
+                <li className="icon-list-item">AI-driven acceleration programs</li>
+                <li className="icon-list-item">Strategic mentorship & coaching</li>
+                <li className="icon-list-item">NQF-aligned certifications</li>
               </ul>
               <Link to="/for-entrepreneurs" className="btn btn-secondary btn-arrow">
                 Learn More

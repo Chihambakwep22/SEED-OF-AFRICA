@@ -10,7 +10,6 @@ function AnimatedCounter({ value, duration = 2000, startOnView = true }) {
   const [isVisible, setIsVisible] = useState(!startOnView)
   const elementRef = useRef(null)
 
-  // ✅ FIX: suffix is now properly scoped
   const suffix = String(value).replace(/[0-9]/g, '')
 
   useEffect(() => {
@@ -73,7 +72,6 @@ function AnimatedCounter({ value, duration = 2000, startOnView = true }) {
  * Main Impact Metrics Dashboard (AI + Live Updates)
  */
 export default function ImpactMetrics() {
-  // 📊 AI-Driven KPI Metrics (simulated live data)
   const [metrics, setMetrics] = useState([
     { value: '100%', label: 'Scorecard Optimization', description: 'Zero wasted ESD capital' },
     { value: '+45%', label: 'SME Growth', description: 'Average supplier revenue increase' },
@@ -83,10 +81,6 @@ export default function ImpactMetrics() {
 
   const sectionRef = useStaggeredReveal({ threshold: 0.1, once: true })
 
-  /**
-   * 🤖 Simulated AI Live Metrics Updates
-   * (Replace this later with Django API / WebSocket)
-   */
   useEffect(() => {
     const interval = setInterval(() => {
       setMetrics((prev) =>
@@ -116,28 +110,15 @@ export default function ImpactMetrics() {
         <div ref={sectionRef.ref} className="stagger-children">
 
           {/* 🔥 Title */}
-          <h2 className="section-title reveal-title">
-            🔥 Our AI-Powered Impact Dashboard
-          </h2>
+          <h2 className="section-title reveal-title">Our AI-Powered Impact Dashboard</h2>
 
-          <p className="section-subtitle reveal-subtitle">
-            📊 Real-time ESD performance metrics powered by intelligent analytics
-          </p>
+          <p className="section-subtitle reveal-subtitle">Real-time ESD performance metrics powered by intelligent analytics</p>
 
-          {/* 📊 KPI GRID */}
           <div className="metrics-grid">
             {metrics.map((metric, index) => (
               <div key={index} className="metric-card">
 
-                {/* Icon */}
-                <div className="metric-icon">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
+                <div className="metric-icon blue-circle-icon" aria-hidden="true"></div>
 
                 {/* Animated Value */}
                 <div className="metric-value">

@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-section">
           <div className="footer-logo">
-            <span className="logo-icon">🌱</span>
+            <span className="logo-badge" aria-hidden="true">TQ</span>
             <h3>Thale-Quants</h3>
           </div>
           <p>AI-Powered Enterprise & Supplier Development for the Future of Africa</p>
@@ -57,7 +57,7 @@ export default function Footer() {
             <a href="#" className="social-icon" aria-label="Instagram">
               <FiInstagram size={18} />
             </a>
-            <a href="mailto:hello@thale-quants.co.za" className="social-icon" aria-label="Email">
+            <a href="mailto:info.thalequants@gmail.com" className="social-icon" aria-label="Email">
               <FiMail size={18} />
             </a>
           </div>

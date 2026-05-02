@@ -18,12 +18,11 @@ export default function HeroSection() {
       <div className="hero-content">
         <div className="hero-badge reveal-badge">AI-Powered ESD Platform</div>
         <h1 ref={heroTitle.ref} className="hero-title reveal-title">
-          Beyond the Tick-Box: AI-Powered ESD for the Future of Africa
+          AI-Powered Enterprise & Supplier Development
         </h1>
         <p ref={heroSubtitle.ref} className="hero-subtitle reveal-subtitle">
-          We are disrupting traditional Enterprise and Supplier Development by merging strategic 
-          mentorship with cutting-edge AI. We don't just meet compliance; we build high-performance, 
-          tech-enabled supply chains.
+          We help enterprises and entrepreneurs build measurable capability through analytics,
+          mentorship, financial literacy, and practical digital tools.
         </p>
         <div ref={heroButtons.ref} className="hero-buttons reveal-buttons">
           <Link to="/contact" className="btn btn-primary btn-lg btn-glow">
