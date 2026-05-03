@@ -74,8 +74,11 @@
   0% {
     transform: translate3d(0, 0, 0);
   }
+  50% {
+    transform: translate3d(3.6%, -2.8%, 0);
+  }
   100% {
-    transform: translate3d(2.8%, -2%, 0);
+    transform: translate3d(6.4%, -4.8%, 0);
   }
 }
 
@@ -83,17 +86,20 @@
   0% {
     transform: translate3d(0, 0, 0);
   }
+  50% {
+    transform: translate3d(-3.2%, 3.3%, 0);
+  }
   100% {
-    transform: translate3d(-2.4%, 2.4%, 0);
+    transform: translate3d(-5.8%, 5.9%, 0);
   }
 }
 
 .wave-svg-main {
-  animation: waveDrift 16s ease-in-out infinite alternate;
+  animation: waveDrift 12s ease-in-out infinite alternate;
 }
 
 .wave-svg-soft {
-  animation: waveDriftSoft 19s ease-in-out infinite alternate;
+  animation: waveDriftSoft 14s ease-in-out infinite alternate;
 }
 
 .app > *:not(.wave-background) {
