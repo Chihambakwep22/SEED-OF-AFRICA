@@ -74,7 +74,7 @@
 }
 
 .footer-logo .logo-badge {
-  font-size: 2rem;
+  font-size: inherit;
   animation: pulse 4s ease-in-out infinite;
 }
 

@@ -44,7 +44,7 @@
 }
 
 .logo-badge {
-  font-size: 1.75rem;
+  font-size: inherit;
   animation: pulse 3s ease-in-out infinite;
 }
 

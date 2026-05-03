@@ -327,17 +327,18 @@ p {
   justify-content: center;
   flex-shrink: 0;
   border-radius: 50%;
-  background: linear-gradient(135deg, #2f6bff 0%, #4f78ff 45%, #7f1d3f 100%);
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 55%, #123f26 100%);
   color: var(--white);
-  box-shadow: 0 10px 24px rgba(47, 107, 255, 0.2);
+  box-shadow: 0 10px 24px rgba(26, 71, 42, 0.3);
 }
 
 .logo-badge {
-  width: 2.75rem;
-  height: 2.75rem;
-  font-size: 0.95rem;
+  width: 2.9rem;
+  height: 2.9rem;
+  font-size: 1.05rem;
+  line-height: 1;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
 }
 
 .blue-circle-icon {
