@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import picture1 from '../assets/picture1.jpg'
 import '../styles/WebinarSignup.css'
 
 const webinarTopics = [
@@ -47,6 +48,13 @@ export default function WebinarSignup() {
     <section className="webinar-signup">
       <div className="webinar-signup-container">
         <div className="webinar-copy">
+          <div className="webinar-visual">
+            <img src={picture1} alt="Thale-Quants webinar preview" className="webinar-visual-image" />
+            <div className="webinar-visual-overlay">
+              <span>Featured Image</span>
+              <strong>Learning that looks and feels premium</strong>
+            </div>
+          </div>
           <div className="webinar-kicker">
             <span className="blue-circle-icon blue-circle-icon--sm" aria-hidden="true"></span>
             Webinar Registration

@@ -35,17 +35,7 @@ export default function ForEnterprises() {
           <div className="card-icon blue-circle-icon" aria-hidden="true"></div>
           <h2>AI-Enhanced ESD Strategy & Compliance</h2>
           <p className="card-subtitle">Move from passive compliance to active competitive advantage</p>
-          <ul className="features-list">
-            <li className="icon-list-item">
-              <strong>Predictive Scorecard Optimization:</strong> Data-driven modelling ensures 100% ESD spend absorption with zero wasted capital
-            </li>
-            <li className="icon-list-item">
-              <strong>Bespoke Tech-Forward Design:</strong> Programs that modernize SMEs, ensuring your suppliers are technologically advanced
-            </li>
-            <li className="icon-list-item">
-              <strong>Intelligent Regulatory Guidance:</strong> Real-time navigation of Codes of Good Practice with proactive policy analysis
-            </li>
-          </ul>
+          <p className="card-description"><strong>Predictive Scorecard Optimization:</strong> Data-driven modelling ensures 100% ESD spend absorption with zero wasted capital. <strong>Bespoke Tech-Forward Design:</strong> Programs that modernize SMEs, ensuring your suppliers are technologically advanced. <strong>Intelligent Regulatory Guidance:</strong> Real-time navigation of Codes of Good Practice with proactive policy analysis.</p>
         </div>
       </section>
 
@@ -54,17 +44,7 @@ export default function ForEnterprises() {
           <div className="card-icon blue-circle-icon" aria-hidden="true"></div>
           <h2>Intelligent Supplier Scouting & Vetting</h2>
           <p className="card-subtitle">Building a Future-Proof supply chain</p>
-          <ul className="features-list">
-            <li className="icon-list-item">
-              <strong>Precision Due Diligence:</strong> Analyse operational scalability and digital readiness of every supplier
-            </li>
-            <li className="icon-list-item">
-              <strong>Market-Ready Database:</strong> Access curated black-owned businesses vetted for quality, compliance, and technological agility
-            </li>
-            <li className="icon-list-item">
-              <strong>Strategic Gap Identification:</strong> AI-driven diagnostics pinpoint where suppliers are falling behind with actionable roadmaps
-            </li>
-          </ul>
+          <p className="card-description"><strong>Precision Due Diligence:</strong> Analyse operational scalability and digital readiness of every supplier. <strong>Market-Ready Database:</strong> Access curated black-owned businesses vetted for quality, compliance, and technological agility. <strong>Strategic Gap Identification:</strong> AI-driven diagnostics pinpoint where suppliers are falling behind with actionable roadmaps.</p>
         </div>
       </section>
 
@@ -73,17 +53,7 @@ export default function ForEnterprises() {
           <div className="card-icon blue-circle-icon" aria-hidden="true"></div>
           <h2>High-Fidelity M&E and Impact Reporting</h2>
           <p className="card-subtitle">Radical transparency and measurable ROI</p>
-          <ul className="features-list">
-            <li className="icon-list-item">
-              <strong>Live Impact Dashboards:</strong> Real-time data on investment performance without waiting for year-end reports
-            </li>
-            <li className="icon-list-item">
-              <strong>Beyond the Spend:</strong> Track deep value including revenue growth in Rands, digital adoption rates, and job creation
-            </li>
-            <li className="icon-list-item">
-              <strong>Success Stories 2.0:</strong> Data-backed case studies proving how intervention transforms suppliers into high-tech partners
-            </li>
-          </ul>
+          <p className="card-description"><strong>Live Impact Dashboards:</strong> Real-time data on investment performance without waiting for year-end reports. <strong>Beyond the Spend:</strong> Track deep value including revenue growth in Rands, digital adoption rates, and job creation. <strong>Success Stories 2.0:</strong> Data-backed case studies proving how intervention transforms suppliers into high-tech partners.</p>
         </div>
       </section>
 

@@ -33,6 +33,8 @@ export default function HeroSection() {
           </button>
         </div>
       </div>
+
+      {/* hero visual removed - image will be shown only on Webinar signup */}
       
       <div className="hero-scroll-indicator">
         <div className="mouse">

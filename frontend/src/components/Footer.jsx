@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FiFacebook, FiTwitter, FiLinkedin, FiMail, FiInstagram } from 'react-icons/fi'
+import { FiMail } from 'react-icons/fi'
 import '../styles/Footer.css'
 
 export default function Footer() {
@@ -45,18 +45,6 @@ export default function Footer() {
           <h4>Connect</h4>
           <p>Stay updated with our latest insights and offerings</p>
           <div className="social-links">
-            <a href="#" className="social-icon" aria-label="Facebook">
-              <FiFacebook size={18} />
-            </a>
-            <a href="#" className="social-icon" aria-label="Twitter">
-              <FiTwitter size={18} />
-            </a>
-            <a href="#" className="social-icon" aria-label="LinkedIn">
-              <FiLinkedin size={18} />
-            </a>
-            <a href="#" className="social-icon" aria-label="Instagram">
-              <FiInstagram size={18} />
-            </a>
             <a href="mailto:info.thalequants@gmail.com" className="social-icon" aria-label="Email">
               <FiMail size={18} />
             </a>

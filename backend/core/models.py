@@ -239,3 +239,17 @@ class Report(models.Model):
 
     def __str__(self):
         return self.title
+
+
+# ---------------- CHATBOT ----------------
+class ChatbotMessage(models.Model):
+    session_id = models.CharField(max_length=100)
+    user_message = models.TextField()
+    bot_response = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+    user_email = models.EmailField(blank=True, null=True)
+    is_escalated = models.BooleanField(default=False)
+    escalated_to_email = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Chat {self.session_id} - {self.timestamp}"

@@ -3,7 +3,7 @@ from django.utils import timezone
 
 from .models import (
     ContactMessage, Service, CaseStudy, BlogPost, Resource,
-    TeamMember, Testimonial
+    TeamMember, Testimonial, ChatbotMessage
 )
 
 # ---------------- CONTACT ----------------
@@ -47,4 +47,11 @@ class TeamMemberSerializer(serializers.ModelSerializer):
 class TestimonialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Testimonial
+        fields = '__all__'
+
+
+# ---------------- CHATBOT ----------------
+class ChatbotMessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ChatbotMessage
         fields = '__all__'

@@ -20,12 +20,7 @@ export default function WhoWeServe() {
                 <span className="card-icon blue-circle-icon" aria-hidden="true"></span>
                 <h3>For Enterprises</h3>
               </div>
-              <p>Strategic partners seeking to transform ESD from compliance burden into competitive advantage.</p>
-              <ul>
-                <li className="icon-list-item">Optimized ESD spend with measurable ROI</li>
-                <li className="icon-list-item">Tech-enabled supplier networks</li>
-                <li className="icon-list-item">Real-time impact dashboards</li>
-              </ul>
+              <p>Strategic partners seeking to transform ESD from compliance burden into competitive advantage. Optimized ESD spend with measurable ROI, tech-enabled supplier networks, and real-time impact dashboards.</p>
               <Link to="/for-enterprises" className="btn btn-secondary btn-arrow">
                 Learn More
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -39,12 +34,7 @@ export default function WhoWeServe() {
                 <span className="card-icon blue-circle-icon" aria-hidden="true"></span>
                 <h3>For Entrepreneurs</h3>
               </div>
-              <p>Ambitious business owners ready to scale with AI-powered tools and world-class mentorship.</p>
-              <ul>
-                <li className="icon-list-item">AI-driven acceleration programs</li>
-                <li className="icon-list-item">Strategic mentorship & coaching</li>
-                <li className="icon-list-item">NQF-aligned certifications</li>
-              </ul>
+              <p>Ambitious business owners ready to scale with AI-powered tools and world-class mentorship. AI-driven acceleration programs, strategic mentorship & coaching, and NQF-aligned certifications.</p>
               <Link to="/for-entrepreneurs" className="btn btn-secondary btn-arrow">
                 Learn More
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

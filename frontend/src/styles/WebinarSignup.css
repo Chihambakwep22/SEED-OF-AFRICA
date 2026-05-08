@@ -23,6 +23,52 @@
   padding: 2.5rem;
 }
 
+.webinar-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.webinar-visual {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  min-height: 220px;
+  box-shadow: 0 18px 36px rgba(17, 24, 39, 0.14);
+}
+
+.webinar-visual-image {
+  display: block;
+  width: 100%;
+  height: 360px;
+  object-fit: contain; /* ensure full-detail visible */
+  background: #0b1220; /* dark background so image colors show */
+}
+
+.webinar-visual-overlay {
+  position: absolute;
+  inset: auto 0 0 0; /* only bottom */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  background: linear-gradient(180deg, rgba(9, 25, 57, 0.0) 0%, rgba(9, 25, 57, 0.36) 100%);
+  color: var(--white);
+}
+
+.webinar-visual-overlay span {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.webinar-visual-overlay strong {
+  font-size: 1.1rem;
+  line-height: 1.35;
+}
+
 .webinar-kicker {
   display: inline-flex;
   align-items: center;
@@ -127,6 +173,14 @@
   .webinar-copy,
   .webinar-form {
     padding: 1.5rem;
+  }
+
+  .webinar-visual {
+    min-height: 180px;
+  }
+
+  .webinar-visual-image {
+    height: 180px;
   }
 
   .form-grid {
