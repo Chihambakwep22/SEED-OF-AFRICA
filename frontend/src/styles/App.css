@@ -102,7 +102,7 @@
   animation: waveDriftSoft 14s ease-in-out infinite alternate;
 }
 
-.app > *:not(.wave-background) {
+.app > :not(.wave-background):not(.navbar) {
   position: relative;
   z-index: 2;
 }

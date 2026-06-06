@@ -296,7 +296,7 @@
   .chatbot-container {
     right: calc(12px + env(safe-area-inset-right, 0px));
     bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-    z-index: 998;
+    z-index: 2147483647;
   }
 
   .chatbot-window {
@@ -305,7 +305,7 @@
     height: 56vh;
     right: calc(6px + env(safe-area-inset-right, 0px));
     bottom: calc(76px + env(safe-area-inset-bottom, 0px));
-    z-index: 998;
+    z-index: 2147483647;
   }
 
   .chatbot-toggle {
