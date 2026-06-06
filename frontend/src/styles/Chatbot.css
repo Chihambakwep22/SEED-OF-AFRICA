@@ -1,7 +1,7 @@
 .chatbot-container {
   position: fixed; 
-  top: 18px; /* pin to very top */
-  right: 20px; 
+  right: 24px;
+  bottom: 24px;
   z-index: 999999; 
   font-family: inherit; 
 }
@@ -99,8 +99,8 @@
 
 .chatbot-window {
   position: fixed; /* fixed so it opens relative to viewport */
-  top: 72px; /* below the launcher */
-  right: 20px; 
+  right: 24px; 
+  bottom: 96px; 
   width: 420px; 
   height: 640px; 
   background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
@@ -294,8 +294,8 @@
 /* Mobile responsive */
 @media (max-width: 480px) {
   .chatbot-container {
-    top: 12px;
     right: 12px;
+    bottom: 12px;
   }
 
   .chatbot-window {
@@ -303,7 +303,7 @@
     max-width: 420px;
     height: 56vh;
     right: 6px;
-    top: 56px;
+    bottom: 76px;
   }
 
   .chatbot-toggle {

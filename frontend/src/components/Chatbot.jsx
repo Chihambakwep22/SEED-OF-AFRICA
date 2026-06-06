@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import '../styles/Chatbot.css'
 
 export default function Chatbot() {
@@ -82,7 +83,11 @@ export default function Chatbot() {
     }
   }
 
-  return (
+  if (typeof document === 'undefined') {
+    return null
+  }
+
+  return createPortal(
     <div className="chatbot-container">
       <button
         className={`chatbot-toggle ${hasUnread && !isOpen ? 'has-unread' : ''}`}
@@ -148,5 +153,5 @@ export default function Chatbot() {
         </div>
       )}
     </div>
-  )
+  , document.body)
 }
