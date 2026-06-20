@@ -45,7 +45,7 @@ export default function Footer() {
           <h4>Connect</h4>
           <p>Stay updated with our latest insights and offerings</p>
           <div className="social-links">
-            <a href="mailto:info.thalequants@gmail.com" className="social-icon" aria-label="Email">
+            <a href="mailto:thalequants@gmail.com" className="social-icon" aria-label="Email">
               <FiMail size={18} />
             </a>
           </div>

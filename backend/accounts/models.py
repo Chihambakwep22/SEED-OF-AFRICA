@@ -1,0 +1,91 @@
+from django.contrib.auth.base_user import BaseUserManager
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+
+
+class UserManager(BaseUserManager):
+    use_in_migrations = True
+
+    def _create_user(self, email, password, **extra_fields):
+        if not email:
+            raise ValueError('Users must have an email address')
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_user(self, email, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', False)
+        extra_fields.setdefault('is_superuser', False)
+        return self._create_user(email, password, **extra_fields)
+
+    def create_superuser(self, email, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+        extra_fields.setdefault('role', User.Role.SUPER_ADMIN)
+        return self._create_user(email, password, **extra_fields)
+
+
+class User(AbstractUser):
+    class Role(models.TextChoices):
+        SUPER_ADMIN = 'super_admin', 'Super Admin'
+        ENTREPRENEUR = 'entrepreneur', 'Entrepreneur'
+        ENTERPRISE = 'enterprise', 'Enterprise'
+
+    username = None
+    email = models.EmailField(unique=True)
+    role = models.CharField(max_length=20, choices=Role.choices)
+    phone_number = models.CharField(max_length=20, blank=True)
+    is_verified = models.BooleanField(default=True)
+    is_approved = models.BooleanField(default=True)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+
+    objects = UserManager()
+
+    def __str__(self):
+        return self.email
+
+    @property
+    def dashboard_path(self):
+        return {
+            User.Role.SUPER_ADMIN: '/admin/dashboard',
+            User.Role.ENTREPRENEUR: '/entrepreneur/dashboard',
+            User.Role.ENTERPRISE: '/enterprise/dashboard',
+        }[self.role]
+
+
+class EntrepreneurProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='entrepreneur_profile')
+    full_name = models.CharField(max_length=255)
+    country = models.CharField(max_length=100)
+    business_name = models.CharField(max_length=255)
+    industry = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.full_name
+
+
+class EnterpriseProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='enterprise_profile')
+    company_name = models.CharField(max_length=255)
+    contact_person = models.CharField(max_length=255)
+    industry = models.CharField(max_length=100)
+    company_size = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.company_name
+
+
+class LoginHistory(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='login_history')
+    timestamp = models.DateTimeField(auto_now_add=True)
+    ip_address = models.GenericIPAddressField(null=True, blank=True)
+
+    class Meta:
+        ordering = ['-timestamp']
+
+    def __str__(self):
+        return f'{self.user.email} @ {self.timestamp}'

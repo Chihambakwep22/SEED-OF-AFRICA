@@ -135,7 +135,7 @@ class ChatbotViewSet(viewsets.ViewSet):
                 subject=f'New Chatbot Message - Session {session_id}',
                 message=f'User: {message}\n\nBot Response: {bot_response}',
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=['info.thalequants@gmail.com'],
+                recipient_list=['thalequants@gmail.com'],
                 fail_silently=True,
             )
         except:
@@ -161,10 +161,10 @@ class ChatbotViewSet(viewsets.ViewSet):
             return "Our pricing varies based on your specific needs. Please share more details about your requirements, and we can provide a custom quote."
         
         elif any(word in message_lower for word in ['contact', 'call', 'meeting', 'demo']):
-            return "I'd love to help! You can reach our team at info.thalequants@gmail.com or use our contact form. What time works best for you?"
+            return "I'd love to help! You can reach our team at thalequants@gmail.com or use our contact form. What time works best for you?"
         
         elif any(word in message_lower for word in ['help', 'support', 'issue', 'problem']):
             return "Sorry to hear you're having an issue. Our support team will be notified and will get back to you shortly. Can you provide more details?"
         
         else:
-            return "Thank you for your inquiry! Our team will review your message and get back to you within 24 hours. In the meantime, feel free to explore our website or contact us directly at info.thalequants@gmail.com."
+            return "Thank you for your inquiry! Our team will review your message and get back to you within 24 hours. In the meantime, feel free to explore our website or contact us directly at thalequants@gmail.com."

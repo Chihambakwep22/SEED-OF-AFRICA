@@ -1,8 +1,16 @@
 import { useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 import '../styles/ForEntrepreneurs.css'
 
 export default function ForEntrepreneurs() {
   const sectionsRef = useRef([])
+  const navigate = useNavigate()
+  const { user } = useAuth()
+
+  const handleGetStarted = () => {
+    navigate(user ? user.dashboard_path : '/login')
+  }
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,7 +67,7 @@ export default function ForEntrepreneurs() {
 
       <section ref={(el) => (sectionsRef.current[3] = el)} className="cta-section">
         <h2>Ready to Transform Your Business?</h2>
-        <button className="btn btn-primary btn-xl">Get Started with AI Training</button>
+        <button className="btn btn-primary btn-xl" onClick={handleGetStarted}>Get Started with AI Training</button>
       </section>
     </div>
   )

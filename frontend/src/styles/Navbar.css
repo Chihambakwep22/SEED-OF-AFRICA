@@ -111,6 +111,13 @@
   z-index: 1;
 }
 
+.nav-link-button {
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
 /* CTA Button in Nav */
 .nav-cta {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);

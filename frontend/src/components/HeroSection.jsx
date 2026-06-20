@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 import useScrollReveal from '../hooks/useScrollReveal'
+import { useAuth } from '../context/AuthContext'
 import '../styles/HeroSection.css'
 
 export default function HeroSection() {
+  const { user } = useAuth()
   const heroTitle = useScrollReveal({ threshold: 0.3 })
   const heroSubtitle = useScrollReveal({ threshold: 0.3, delay: 200 })
   const heroButtons = useScrollReveal({ threshold: 0.3, delay: 400 })
@@ -28,9 +30,9 @@ export default function HeroSection() {
           <Link to="/contact" className="btn btn-primary btn-lg btn-glow">
             Book a Strategy Call
           </Link>
-          <button className="btn btn-outline btn-lg">
-            Explore Solutions
-          </button>
+          <Link to={user ? user.dashboard_path : '/signup'} className="btn btn-outline btn-lg">
+            Get Started
+          </Link>
         </div>
       </div>
 

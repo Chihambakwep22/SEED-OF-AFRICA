@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { AuthProvider } from './context/AuthContext'
+import ProtectedRoute from './components/ProtectedRoute'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Chatbot from './components/Chatbot'
@@ -8,12 +10,19 @@ import ForEntrepreneurs from './pages/ForEntrepreneurs'
 import KnowledgeHub from './pages/KnowledgeHub'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
+import AdminDashboard from './pages/admin/AdminDashboard'
+import UserManagement from './pages/admin/UserManagement'
+import EntrepreneurDashboard from './pages/entrepreneur/EntrepreneurDashboard'
+import EnterpriseDashboard from './pages/enterprise/EnterpriseDashboard'
 import './styles/App.css'
 
 function App() {
   return (
-    <Router>
-      <div className="app">
+    <AuthProvider>
+      <Router>
+        <div className="app">
         <div className="wave-background" aria-hidden="true">
           <svg className="wave-svg wave-svg-main" viewBox="0 0 1200 600" preserveAspectRatio="none">
             <defs>
@@ -77,12 +86,47 @@ function App() {
             <Route path="/knowledge-hub" element={<KnowledgeHub />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route
+              path="/admin/dashboard"
+              element={
+                <ProtectedRoute role="super_admin">
+                  <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/users"
+              element={
+                <ProtectedRoute role="super_admin">
+                  <UserManagement />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/entrepreneur/dashboard"
+              element={
+                <ProtectedRoute role="entrepreneur">
+                  <EntrepreneurDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/enterprise/dashboard"
+              element={
+                <ProtectedRoute role="enterprise">
+                  <EnterpriseDashboard />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </main>
         <Footer />
         <Chatbot />
       </div>
     </Router>
+    </AuthProvider>
   )
 }
 

@@ -1,8 +1,16 @@
 import { useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 import '../styles/ForEnterprises.css'
 
 export default function ForEnterprises() {
   const sectionsRef = useRef([])
+  const navigate = useNavigate()
+  const { user } = useAuth()
+
+  const handleScheduleSession = () => {
+    navigate(user ? '/contact' : '/login')
+  }
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,7 +67,7 @@ export default function ForEnterprises() {
 
       <section ref={(el) => (sectionsRef.current[3] = el)} className="cta-section">
         <h2>Ready to Transform Your Supply Chain?</h2>
-        <button className="btn btn-primary btn-xl">Schedule a Strategy Session</button>
+        <button className="btn btn-primary btn-xl" onClick={handleScheduleSession}>Schedule a Strategy Session</button>
       </section>
     </div>
   )
