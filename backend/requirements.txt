@@ -17,7 +17,7 @@ Pillow>=11.0,<12.0
 sendgrid==6.11.0
 
 # PDF generation
-reportlab==4.0.4
+reportlab==3.6.13
 xhtml2pdf==0.2.11
 weasyprint==59.0
 
