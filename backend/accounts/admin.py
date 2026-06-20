@@ -1,7 +1,14 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 
-from .models import EnterpriseProfile, EntrepreneurProfile, LoginHistory, User
+from .models import (
+    EnterpriseProfile,
+    EntrepreneurProfile,
+    LoginHistory,
+    MentorProfile,
+    Mentorship,
+    User,
+)
 
 
 @admin.register(User)
@@ -42,3 +49,16 @@ class LoginHistoryAdmin(admin.ModelAdmin):
     list_display = ('user', 'timestamp', 'ip_address')
     list_filter = ('timestamp',)
     search_fields = ('user__email',)
+
+
+@admin.register(MentorProfile)
+class MentorProfileAdmin(admin.ModelAdmin):
+    list_display = ('full_name', 'expertise', 'user')
+    search_fields = ('full_name', 'expertise', 'user__email')
+
+
+@admin.register(Mentorship)
+class MentorshipAdmin(admin.ModelAdmin):
+    list_display = ('mentor', 'entrepreneur', 'status', 'assigned_at')
+    list_filter = ('status',)
+    search_fields = ('mentor__email', 'entrepreneur__email')

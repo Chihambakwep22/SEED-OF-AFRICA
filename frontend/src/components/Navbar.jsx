@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { FiMenu, FiX } from 'react-icons/fi'
-import { useAuth } from '../context/AuthContext'
 import '../styles/Navbar.css'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const { user, logout } = useAuth()
-  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,40 +66,16 @@ export default function Navbar() {
               <span>Book Consultation</span>
             </Link>
           </li>
-          {user ? (
-            <>
-              <li className="nav-item">
-                <Link to={user.dashboard_path} className="nav-link" onClick={closeMenu}>
-                  <span>Dashboard</span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <button
-                  className="nav-link nav-link-button"
-                  onClick={() => {
-                    closeMenu()
-                    logout()
-                    navigate('/')
-                  }}
-                >
-                  <span>Logout</span>
-                </button>
-              </li>
-            </>
-          ) : (
-            <>
-              <li className="nav-item">
-                <Link to="/login" className="nav-link" onClick={closeMenu}>
-                  <span>Login</span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/signup" className="nav-link" onClick={closeMenu}>
-                  <span>Sign Up</span>
-                </Link>
-              </li>
-            </>
-          )}
+          <li className="nav-item">
+            <Link to="/login" className="nav-link" onClick={closeMenu}>
+              <span>Login</span>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/signup" className="nav-link" onClick={closeMenu}>
+              <span>Sign Up</span>
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>

@@ -17,6 +17,7 @@ const CREATE_INITIAL = {
   company_name: '',
   contact_person: '',
   company_size: '',
+  expertise: '',
 }
 
 export default function UserManagement() {
@@ -261,6 +262,7 @@ export default function UserManagement() {
                 <select id="role" name="role" value={createData.role} onChange={handleCreateChange}>
                   <option value="entrepreneur">Entrepreneur</option>
                   <option value="enterprise">Enterprise</option>
+                  <option value="mentor">Mentor</option>
                   <option value="super_admin">Super Admin</option>
                 </select>
               </div>
@@ -318,6 +320,19 @@ export default function UserManagement() {
                   <div className="form-group">
                     <label htmlFor="company_size">Company Size *</label>
                     <input type="text" id="company_size" name="company_size" value={createData.company_size} onChange={handleCreateChange} required />
+                  </div>
+                </>
+              )}
+
+              {createData.role === 'mentor' && (
+                <>
+                  <div className="form-group">
+                    <label htmlFor="full_name">Full Name *</label>
+                    <input type="text" id="full_name" name="full_name" value={createData.full_name} onChange={handleCreateChange} required />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="expertise">Area of Expertise</label>
+                    <input type="text" id="expertise" name="expertise" value={createData.expertise} onChange={handleCreateChange} placeholder="e.g. Financial Strategy, Marketing" />
                   </div>
                 </>
               )}

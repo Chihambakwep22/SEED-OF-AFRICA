@@ -32,6 +32,7 @@ class User(AbstractUser):
         SUPER_ADMIN = 'super_admin', 'Super Admin'
         ENTREPRENEUR = 'entrepreneur', 'Entrepreneur'
         ENTERPRISE = 'enterprise', 'Enterprise'
+        MENTOR = 'mentor', 'Mentor'
 
     username = None
     email = models.EmailField(unique=True)
@@ -54,6 +55,7 @@ class User(AbstractUser):
             User.Role.SUPER_ADMIN: '/admin/dashboard',
             User.Role.ENTREPRENEUR: '/entrepreneur/dashboard',
             User.Role.ENTERPRISE: '/enterprise/dashboard',
+            User.Role.MENTOR: '/mentor/dashboard',
         }[self.role]
 
 
@@ -88,6 +90,34 @@ class EnterpriseProfile(models.Model):
 
     def __str__(self):
         return self.company_name
+
+
+class MentorProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='mentor_profile')
+    full_name = models.CharField(max_length=255)
+    expertise = models.CharField(max_length=255, blank=True)
+    bio = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.full_name
+
+
+class Mentorship(models.Model):
+    class Status(models.TextChoices):
+        ACTIVE = 'active', 'Active'
+        COMPLETED = 'completed', 'Completed'
+
+    mentor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='mentorships_as_mentor')
+    entrepreneur = models.ForeignKey(User, on_delete=models.CASCADE, related_name='mentorships_as_entrepreneur')
+    status = models.CharField(max_length=20, choices=Status.choices, default=Status.ACTIVE)
+    assigned_at = models.DateTimeField(auto_now_add=True)
+    notes = models.TextField(blank=True)
+
+    class Meta:
+        unique_together = ('mentor', 'entrepreneur')
+
+    def __str__(self):
+        return f'{self.mentor.email} -> {self.entrepreneur.email}'
 
 
 class LoginHistory(models.Model):

@@ -96,6 +96,11 @@ export const entrepreneurAPI = {
   updateProfile: (data) => api.patch('/auth/entrepreneur/profile/', data),
 }
 
+// Mentor API
+export const mentorAPI = {
+  getAssignedEntrepreneurs: () => api.get('/auth/mentor/assigned-entrepreneurs/'),
+}
+
 // Contact API
 export const contactAPI = {
   submit: (data) => api.post('/contact/', data),

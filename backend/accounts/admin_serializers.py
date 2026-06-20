@@ -1,11 +1,18 @@
 from django.contrib.auth.password_validation import validate_password
 from rest_framework import serializers
 
-from .models import EnterpriseProfile, EntrepreneurProfile, LoginHistory, User
+from .models import (
+    EnterpriseProfile,
+    EntrepreneurProfile,
+    LoginHistory,
+    MentorProfile,
+    User,
+)
 from .serializers import UserSerializer
 
 ENTREPRENEUR_REQUIRED = ['full_name', 'country', 'business_name', 'industry']
 ENTERPRISE_REQUIRED = ['company_name', 'contact_person', 'industry', 'company_size']
+MENTOR_REQUIRED = ['full_name']
 
 
 class AdminUserListSerializer(UserSerializer):
@@ -27,6 +34,7 @@ class AdminUserCreateSerializer(serializers.Serializer):
     company_name = serializers.CharField(max_length=255, required=False, allow_blank=True)
     contact_person = serializers.CharField(max_length=255, required=False, allow_blank=True)
     company_size = serializers.CharField(max_length=50, required=False, allow_blank=True)
+    expertise = serializers.CharField(max_length=255, required=False, allow_blank=True)
 
     def validate_email(self, value):
         value = value.lower()
@@ -40,6 +48,8 @@ class AdminUserCreateSerializer(serializers.Serializer):
             missing = [f for f in ENTREPRENEUR_REQUIRED if not attrs.get(f)]
         elif role == User.Role.ENTERPRISE:
             missing = [f for f in ENTERPRISE_REQUIRED if not attrs.get(f)]
+        elif role == User.Role.MENTOR:
+            missing = [f for f in MENTOR_REQUIRED if not attrs.get(f)]
         else:
             missing = []
         if missing:
@@ -73,6 +83,12 @@ class AdminUserCreateSerializer(serializers.Serializer):
                 industry=validated_data['industry'],
                 company_size=validated_data['company_size'],
             )
+        elif role == User.Role.MENTOR:
+            MentorProfile.objects.create(
+                user=user,
+                full_name=validated_data['full_name'],
+                expertise=validated_data.get('expertise', ''),
+            )
         return user
 
 
@@ -96,9 +112,11 @@ class AdminSetAdminRoleSerializer(serializers.Serializer):
                 user.role = User.Role.ENTREPRENEUR
             elif hasattr(user, 'enterprise_profile'):
                 user.role = User.Role.ENTERPRISE
+            elif hasattr(user, 'mentor_profile'):
+                user.role = User.Role.MENTOR
             else:
                 raise serializers.ValidationError(
-                    'Cannot remove admin: this user has no entrepreneur or enterprise profile to fall back to.'
+                    'Cannot remove admin: this user has no entrepreneur, enterprise, or mentor profile to fall back to.'
                 )
             user.is_staff = False
             user.is_superuser = False

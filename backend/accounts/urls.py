@@ -5,6 +5,7 @@ from rest_framework_simplejwt.views import TokenRefreshView
 from .admin_views import AdminStatsView, AdminUserViewSet
 from .enterprise_views import SupplierDiscoveryView
 from .entrepreneur_views import EntrepreneurProfileView
+from .mentor_views import AssignedEntrepreneursView
 from .views import (
     CustomTokenObtainPairView,
     MeView,
@@ -24,5 +25,6 @@ urlpatterns = [
     path('admin/stats/', AdminStatsView.as_view(), name='admin-stats'),
     path('enterprise/suppliers/', SupplierDiscoveryView.as_view(), name='supplier-discovery'),
     path('entrepreneur/profile/', EntrepreneurProfileView.as_view(), name='entrepreneur-profile'),
+    path('mentor/assigned-entrepreneurs/', AssignedEntrepreneursView.as_view(), name='mentor-assigned-entrepreneurs'),
     path('', include(admin_router.urls)),
 ]
