@@ -15,7 +15,9 @@ import Signup from './pages/Signup'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import UserManagement from './pages/admin/UserManagement'
 import EntrepreneurDashboard from './pages/entrepreneur/EntrepreneurDashboard'
+import Profile from './pages/entrepreneur/Profile'
 import EnterpriseDashboard from './pages/enterprise/EnterpriseDashboard'
+import SupplierDiscovery from './pages/enterprise/SupplierDiscovery'
 import './styles/App.css'
 
 function App() {
@@ -113,10 +115,26 @@ function App() {
               }
             />
             <Route
+              path="/entrepreneur/profile"
+              element={
+                <ProtectedRoute role="entrepreneur">
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
               path="/enterprise/dashboard"
               element={
                 <ProtectedRoute role="enterprise">
                   <EnterpriseDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/enterprise/suppliers"
+              element={
+                <ProtectedRoute role="enterprise">
+                  <SupplierDiscovery />
                 </ProtectedRoute>
               }
             />

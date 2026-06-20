@@ -1,0 +1,57 @@
+.supplier-filters input,
+.supplier-filters select {
+  flex: 1;
+  min-width: 140px;
+}
+
+.supplier-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.supplier-card {
+  background: var(--white);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: 1.5rem;
+  border-top: 4px solid var(--secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.supplier-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.supplier-card-header h3 {
+  color: var(--primary);
+  font-size: 1.15rem;
+}
+
+.supplier-card-name {
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.supplier-card p {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.supplier-card .btn {
+  margin-top: 0.75rem;
+  align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+  .supplier-filters input,
+  .supplier-filters select {
+    min-width: 100%;
+  }
+}

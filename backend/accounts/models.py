@@ -58,11 +58,22 @@ class User(AbstractUser):
 
 
 class EntrepreneurProfile(models.Model):
+    class BusinessStage(models.TextChoices):
+        IDEA = 'idea', 'Idea'
+        STARTUP = 'startup', 'Startup'
+        GROWTH = 'growth', 'Growth'
+        ESTABLISHED = 'established', 'Established'
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='entrepreneur_profile')
     full_name = models.CharField(max_length=255)
     country = models.CharField(max_length=100)
     business_name = models.CharField(max_length=255)
     industry = models.CharField(max_length=100)
+    location = models.CharField(max_length=255, blank=True)
+    business_stage = models.CharField(max_length=20, choices=BusinessStage.choices, blank=True)
+    business_size = models.CharField(max_length=50, blank=True)
+    certifications = models.TextField(blank=True, help_text='Comma-separated list of certifications')
+    performance_score = models.FloatField(default=0)
 
     def __str__(self):
         return self.full_name

@@ -85,6 +85,17 @@ export const adminAPI = {
   exportUsers: (params) => api.get('/auth/admin/users/export/', { params, responseType: 'blob' }),
 }
 
+// Enterprise API
+export const enterpriseAPI = {
+  searchSuppliers: (params) => api.get('/auth/enterprise/suppliers/', { params }),
+}
+
+// Entrepreneur API
+export const entrepreneurAPI = {
+  getProfile: () => api.get('/auth/entrepreneur/profile/'),
+  updateProfile: (data) => api.patch('/auth/entrepreneur/profile/', data),
+}
+
 // Contact API
 export const contactAPI = {
   submit: (data) => api.post('/contact/', data),

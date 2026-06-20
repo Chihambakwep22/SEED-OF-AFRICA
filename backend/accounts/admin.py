@@ -23,8 +23,12 @@ class UserAdmin(DjangoUserAdmin):
 
 @admin.register(EntrepreneurProfile)
 class EntrepreneurProfileAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'business_name', 'industry', 'country')
-    search_fields = ('full_name', 'business_name', 'user__email')
+    list_display = (
+        'full_name', 'business_name', 'industry', 'country', 'location',
+        'business_stage', 'business_size', 'performance_score',
+    )
+    list_filter = ('business_stage', 'industry')
+    search_fields = ('full_name', 'business_name', 'user__email', 'certifications')
 
 
 @admin.register(EnterpriseProfile)
