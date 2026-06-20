@@ -2,7 +2,7 @@ from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenRefreshView
 
-from .admin_views import AdminStatsView, AdminUserViewSet
+from .admin_views import AdminMentorshipViewSet, AdminStatsView, AdminUserViewSet
 from .enterprise_views import SupplierDiscoveryView
 from .entrepreneur_views import EntrepreneurProfileView
 from .mentor_views import AssignedEntrepreneursView
@@ -15,6 +15,7 @@ from .views import (
 
 admin_router = DefaultRouter()
 admin_router.register(r'admin/users', AdminUserViewSet, basename='admin-users')
+admin_router.register(r'admin/mentorships', AdminMentorshipViewSet, basename='admin-mentorships')
 
 urlpatterns = [
     path('register/entrepreneur/', RegisterEntrepreneurView.as_view(), name='register-entrepreneur'),

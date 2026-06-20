@@ -174,6 +174,7 @@ export default function UserManagement() {
           <option value="">All Roles</option>
           <option value="entrepreneur">Entrepreneur</option>
           <option value="enterprise">Enterprise</option>
+          <option value="mentor">Mentor</option>
           <option value="super_admin">Super Admin</option>
         </select>
         <select value={statusFilter} onChange={(e) => { setStatusFilter(e.target.value); setPage(1) }}>

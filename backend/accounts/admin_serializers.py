@@ -6,6 +6,7 @@ from .models import (
     EntrepreneurProfile,
     LoginHistory,
     MentorProfile,
+    Mentorship,
     User,
 )
 from .serializers import UserSerializer
@@ -138,3 +139,33 @@ class LoginHistorySerializer(serializers.ModelSerializer):
     class Meta:
         model = LoginHistory
         fields = ['id', 'timestamp', 'ip_address']
+
+
+class AdminMentorshipSerializer(serializers.ModelSerializer):
+    mentor = serializers.PrimaryKeyRelatedField(queryset=User.objects.filter(role=User.Role.MENTOR))
+    entrepreneur = serializers.PrimaryKeyRelatedField(queryset=User.objects.filter(role=User.Role.ENTREPRENEUR))
+    mentor_name = serializers.SerializerMethodField()
+    mentor_email = serializers.EmailField(source='mentor.email', read_only=True)
+    entrepreneur_name = serializers.SerializerMethodField()
+    entrepreneur_email = serializers.EmailField(source='entrepreneur.email', read_only=True)
+
+    class Meta:
+        model = Mentorship
+        fields = [
+            'id', 'mentor', 'mentor_name', 'mentor_email',
+            'entrepreneur', 'entrepreneur_name', 'entrepreneur_email',
+            'status', 'assigned_at', 'notes',
+        ]
+
+    def get_mentor_name(self, obj):
+        return getattr(getattr(obj.mentor, 'mentor_profile', None), 'full_name', '')
+
+    def get_entrepreneur_name(self, obj):
+        return getattr(getattr(obj.entrepreneur, 'entrepreneur_profile', None), 'full_name', '')
+
+    def validate(self, attrs):
+        mentor = attrs.get('mentor', getattr(self.instance, 'mentor', None))
+        entrepreneur = attrs.get('entrepreneur', getattr(self.instance, 'entrepreneur', None))
+        if Mentorship.objects.filter(mentor=mentor, entrepreneur=entrepreneur).exclude(pk=getattr(self.instance, 'pk', None)).exists():
+            raise serializers.ValidationError('This mentor is already assigned to this entrepreneur.')
+        return attrs

@@ -9,6 +9,7 @@ from rest_framework.views import APIView
 
 from .admin_permissions import IsSuperAdmin
 from .admin_serializers import (
+    AdminMentorshipSerializer,
     AdminSetAdminRoleSerializer,
     AdminUserCreateSerializer,
     AdminUserListSerializer,
@@ -16,7 +17,7 @@ from .admin_serializers import (
     LoginHistorySerializer,
     ResetPasswordSerializer,
 )
-from .models import LoginHistory, User
+from .models import LoginHistory, Mentorship, User
 
 
 class AdminUserViewSet(viewsets.ModelViewSet):
@@ -117,6 +118,14 @@ class AdminUserViewSet(viewsets.ModelViewSet):
                 user.date_joined, user.last_login,
             ])
         return response
+
+
+class AdminMentorshipViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsSuperAdmin]
+    serializer_class = AdminMentorshipSerializer
+    queryset = Mentorship.objects.select_related(
+        'mentor__mentor_profile', 'entrepreneur__entrepreneur_profile'
+    ).order_by('-assigned_at')
 
 
 class AdminStatsView(APIView):

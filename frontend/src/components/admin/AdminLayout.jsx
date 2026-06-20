@@ -15,6 +15,9 @@ export default function AdminLayout({ children }) {
           <NavLink to="/admin/users" className={({ isActive }) => `admin-sidebar-link ${isActive ? 'active' : ''}`}>
             Users
           </NavLink>
+          <NavLink to="/admin/mentorships" className={({ isActive }) => `admin-sidebar-link ${isActive ? 'active' : ''}`}>
+            Mentorships
+          </NavLink>
           <button type="button" className="admin-sidebar-link admin-sidebar-logout" onClick={logout}>
             Logout
           </button>

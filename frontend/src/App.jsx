@@ -13,6 +13,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import UserManagement from './pages/admin/UserManagement'
+import AdminMentorships from './pages/admin/AdminMentorships'
 import EntrepreneurDashboard from './pages/entrepreneur/EntrepreneurDashboard'
 import Profile from './pages/entrepreneur/Profile'
 import EnterpriseDashboard from './pages/enterprise/EnterpriseDashboard'
@@ -28,6 +29,7 @@ function PortalRoutes({ user }) {
       <Routes>
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/users" element={<UserManagement />} />
+        <Route path="/admin/mentorships" element={<AdminMentorships />} />
         <Route path="*" element={<Navigate to="/admin/dashboard" replace />} />
       </Routes>
     )

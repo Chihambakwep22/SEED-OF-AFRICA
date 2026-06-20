@@ -83,6 +83,10 @@ export const adminAPI = {
   resetPassword: (id, newPassword) => api.post(`/auth/admin/users/${id}/reset-password/`, { new_password: newPassword }),
   loginHistory: (id) => api.get(`/auth/admin/users/${id}/login-history/`),
   exportUsers: (params) => api.get('/auth/admin/users/export/', { params, responseType: 'blob' }),
+  listMentorships: (params) => api.get('/auth/admin/mentorships/', { params }),
+  createMentorship: (data) => api.post('/auth/admin/mentorships/', data),
+  updateMentorship: (id, data) => api.patch(`/auth/admin/mentorships/${id}/`, data),
+  deleteMentorship: (id) => api.delete(`/auth/admin/mentorships/${id}/`),
 }
 
 // Enterprise API
