@@ -1,17 +1,18 @@
 from rest_framework import serializers
 
-from .models import EntrepreneurProfile
+from .models import EntrepreneurDocument, EntrepreneurProfile
 
 
 class EntrepreneurProfileSerializer(serializers.ModelSerializer):
     phone_number = serializers.CharField(required=False, allow_blank=True)
+    completion_percentage = serializers.ReadOnlyField()
 
     class Meta:
         model = EntrepreneurProfile
         fields = [
             'full_name', 'country', 'business_name', 'industry',
             'location', 'business_stage', 'business_size', 'certifications',
-            'phone_number',
+            'phone_number', 'completion_percentage',
         ]
 
     def to_representation(self, instance):
@@ -25,3 +26,10 @@ class EntrepreneurProfileSerializer(serializers.ModelSerializer):
             instance.user.phone_number = phone_number
             instance.user.save()
         return super().update(instance, validated_data)
+
+
+class EntrepreneurDocumentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EntrepreneurDocument
+        fields = ['id', 'name', 'file', 'uploaded_at']
+        read_only_fields = ['id', 'uploaded_at']

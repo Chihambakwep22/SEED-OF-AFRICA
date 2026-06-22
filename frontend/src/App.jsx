@@ -16,9 +16,12 @@ import UserManagement from './pages/admin/UserManagement'
 import AdminMentorships from './pages/admin/AdminMentorships'
 import EntrepreneurDashboard from './pages/entrepreneur/EntrepreneurDashboard'
 import Profile from './pages/entrepreneur/Profile'
+import EntrepreneurPrograms from './pages/entrepreneur/Programs'
 import EnterpriseDashboard from './pages/enterprise/EnterpriseDashboard'
 import SupplierDiscovery from './pages/enterprise/SupplierDiscovery'
+import EnterprisePrograms from './pages/enterprise/Programs'
 import MentorDashboard from './pages/mentor/MentorDashboard'
+import MentorFeedback from './pages/mentor/Feedback'
 import './styles/App.css'
 
 // Once logged in, a user only ever sees their own portal's routes.
@@ -40,6 +43,7 @@ function PortalRoutes({ user }) {
       <Routes>
         <Route path="/entrepreneur/dashboard" element={<EntrepreneurDashboard />} />
         <Route path="/entrepreneur/profile" element={<Profile />} />
+        <Route path="/entrepreneur/programs" element={<EntrepreneurPrograms />} />
         <Route path="*" element={<Navigate to="/entrepreneur/dashboard" replace />} />
       </Routes>
     )
@@ -49,6 +53,7 @@ function PortalRoutes({ user }) {
     return (
       <Routes>
         <Route path="/mentor/dashboard" element={<MentorDashboard />} />
+        <Route path="/mentor/feedback" element={<MentorFeedback />} />
         <Route path="*" element={<Navigate to="/mentor/dashboard" replace />} />
       </Routes>
     )
@@ -58,6 +63,7 @@ function PortalRoutes({ user }) {
     <Routes>
       <Route path="/enterprise/dashboard" element={<EnterpriseDashboard />} />
       <Route path="/enterprise/suppliers" element={<SupplierDiscovery />} />
+      <Route path="/enterprise/programs" element={<EnterprisePrograms />} />
       <Route path="*" element={<Navigate to="/enterprise/dashboard" replace />} />
     </Routes>
   )

@@ -17,7 +17,7 @@ from .admin_serializers import (
     LoginHistorySerializer,
     ResetPasswordSerializer,
 )
-from .models import LoginHistory, Mentorship, User
+from .models import LoginHistory, Mentorship, Program, User
 
 
 class AdminUserViewSet(viewsets.ModelViewSet):
@@ -158,5 +158,6 @@ class AdminStatsView(APIView):
             'total_enterprises': User.objects.filter(role=User.Role.ENTERPRISE).count(),
             'pending_approvals': User.objects.filter(is_approved=False).count(),
             'monthly_registrations': User.objects.filter(date_joined__gte=month_start).count(),
+            'active_programs': Program.objects.filter(status=Program.Status.OPEN).count(),
             'activity_feed': feed[:10],
         })

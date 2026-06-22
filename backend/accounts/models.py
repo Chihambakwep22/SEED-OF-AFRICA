@@ -1,5 +1,6 @@
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser
+from django.core.validators import FileExtensionValidator, MaxValueValidator, MinValueValidator
 from django.db import models
 
 
@@ -77,8 +78,20 @@ class EntrepreneurProfile(models.Model):
     certifications = models.TextField(blank=True, help_text='Comma-separated list of certifications')
     performance_score = models.FloatField(default=0)
 
+    COMPLETION_FIELDS = [
+        'full_name', 'country', 'business_name', 'industry',
+        'location', 'business_stage', 'business_size', 'certifications',
+    ]
+
     def __str__(self):
         return self.full_name
+
+    @property
+    def completion_percentage(self):
+        filled = sum(1 for field in self.COMPLETION_FIELDS if getattr(self, field))
+        filled += 1 if self.user.phone_number else 0
+        total = len(self.COMPLETION_FIELDS) + 1
+        return round(filled / total * 100)
 
 
 class EnterpriseProfile(models.Model):
@@ -118,6 +131,78 @@ class Mentorship(models.Model):
 
     def __str__(self):
         return f'{self.mentor.email} -> {self.entrepreneur.email}'
+
+
+class EntrepreneurDocument(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='documents')
+    name = models.CharField(max_length=255)
+    file = models.FileField(
+        upload_to='entrepreneur_documents/',
+        validators=[FileExtensionValidator(['pdf', 'doc', 'docx', 'png', 'jpg', 'jpeg'])],
+    )
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-uploaded_at']
+
+    def __str__(self):
+        return f'{self.name} ({self.user.email})'
+
+
+class Program(models.Model):
+    class Status(models.TextChoices):
+        DRAFT = 'draft', 'Draft'
+        OPEN = 'open', 'Open'
+        CLOSED = 'closed', 'Closed'
+
+    enterprise = models.ForeignKey(User, on_delete=models.CASCADE, related_name='programs')
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    industry_focus = models.CharField(max_length=100, blank=True)
+    application_deadline = models.DateField(null=True, blank=True)
+    status = models.CharField(max_length=20, choices=Status.choices, default=Status.DRAFT)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.title
+
+
+class ProgramApplication(models.Model):
+    class Status(models.TextChoices):
+        PENDING = 'pending', 'Pending'
+        ACCEPTED = 'accepted', 'Accepted'
+        REJECTED = 'rejected', 'Rejected'
+
+    program = models.ForeignKey(Program, on_delete=models.CASCADE, related_name='applications')
+    entrepreneur = models.ForeignKey(User, on_delete=models.CASCADE, related_name='program_applications')
+    message = models.TextField(blank=True)
+    status = models.CharField(max_length=20, choices=Status.choices, default=Status.PENDING)
+    applied_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('program', 'entrepreneur')
+        ordering = ['-applied_at']
+
+    def __str__(self):
+        return f'{self.entrepreneur.email} -> {self.program.title}'
+
+
+class MentorFeedback(models.Model):
+    mentorship = models.ForeignKey(Mentorship, on_delete=models.CASCADE, related_name='feedback_entries')
+    progress_rating = models.PositiveSmallIntegerField(
+        null=True, blank=True, validators=[MinValueValidator(1), MaxValueValidator(5)],
+    )
+    notes = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f'Feedback for {self.mentorship} @ {self.created_at}'
 
 
 class LoginHistory(models.Model):

@@ -13,6 +13,7 @@ const INITIAL = {
   business_stage: '',
   business_size: '',
   certifications: '',
+  completion_percentage: 0,
 }
 
 export default function Profile() {
@@ -22,12 +23,59 @@ export default function Profile() {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
 
+  const [documents, setDocuments] = useState([])
+  const [docsLoading, setDocsLoading] = useState(true)
+  const [docName, setDocName] = useState('')
+  const [docFile, setDocFile] = useState(null)
+  const [uploading, setUploading] = useState(false)
+  const [docError, setDocError] = useState('')
+
+  const loadDocuments = () => {
+    setDocsLoading(true)
+    entrepreneurAPI.listDocuments()
+      .then(({ data }) => setDocuments(data.results))
+      .catch(() => setDocError('Could not load your documents.'))
+      .finally(() => setDocsLoading(false))
+  }
+
   useEffect(() => {
     entrepreneurAPI.getProfile()
       .then(({ data }) => setFormData(data))
       .catch(() => setError('Could not load your profile.'))
       .finally(() => setLoading(false))
+    loadDocuments()
   }, [])
+
+  const handleUpload = async (e) => {
+    e.preventDefault()
+    setDocError('')
+    setUploading(true)
+    try {
+      await entrepreneurAPI.uploadDocument(docName, docFile)
+      setDocName('')
+      setDocFile(null)
+      e.target.reset()
+      loadDocuments()
+    } catch (err) {
+      const detail = err.response?.data
+      setDocError(
+        typeof detail === 'object' ? Object.values(detail).flat().join(' ') : 'Could not upload document.'
+      )
+    } finally {
+      setUploading(false)
+    }
+  }
+
+  const handleDeleteDocument = async (document) => {
+    if (window.confirm(`Delete "${document.name}"?`)) {
+      try {
+        await entrepreneurAPI.deleteDocument(document.id)
+        loadDocuments()
+      } catch {
+        setDocError('Could not delete document.')
+      }
+    }
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -64,6 +112,16 @@ export default function Profile() {
   return (
     <EntrepreneurLayout>
       <h1>My Profile</h1>
+
+      <div className="profile-completion" style={{ maxWidth: '600px' }}>
+        <div className="profile-completion-label">
+          <span>Profile completion</span>
+          <span>{formData.completion_percentage}%</span>
+        </div>
+        <div className="profile-completion-bar">
+          <div className="profile-completion-fill" style={{ width: `${formData.completion_percentage}%` }} />
+        </div>
+      </div>
 
       <form className="auth-form" onSubmit={handleSubmit} style={{ maxWidth: '600px' }}>
         {error && <div className="error-message">{error}</div>}
@@ -124,6 +182,68 @@ export default function Profile() {
           {saving ? 'Saving...' : 'Save Profile'}
         </button>
       </form>
+
+      <h2 style={{ marginTop: '2.5rem' }}>Business Documents</h2>
+
+      <form className="auth-form" onSubmit={handleUpload} style={{ maxWidth: '600px' }}>
+        {docError && <div className="error-message">{docError}</div>}
+
+        <div className="form-group">
+          <label htmlFor="doc_name">Document Name *</label>
+          <input
+            type="text"
+            id="doc_name"
+            value={docName}
+            onChange={(e) => setDocName(e.target.value)}
+            placeholder="e.g. Business Registration Certificate"
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="doc_file">File *</label>
+          <input
+            type="file"
+            id="doc_file"
+            accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
+            onChange={(e) => setDocFile(e.target.files[0])}
+            required
+          />
+        </div>
+
+        <button type="submit" className="btn btn-primary" disabled={uploading}>
+          {uploading ? 'Uploading...' : 'Upload Document'}
+        </button>
+      </form>
+
+      <div className="admin-table-wrapper" style={{ maxWidth: '600px', marginTop: '1.5rem' }}>
+        <table className="admin-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Uploaded</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {docsLoading && (
+              <tr><td colSpan="3">Loading...</td></tr>
+            )}
+            {!docsLoading && documents.length === 0 && (
+              <tr><td colSpan="3">No documents uploaded yet.</td></tr>
+            )}
+            {!docsLoading && documents.map((document) => (
+              <tr key={document.id}>
+                <td><a href={document.file} target="_blank" rel="noreferrer">{document.name}</a></td>
+                <td>{new Date(document.uploaded_at).toLocaleDateString()}</td>
+                <td>
+                  <button className="danger" onClick={() => handleDeleteDocument(document)}>Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </EntrepreneurLayout>
   )
 }

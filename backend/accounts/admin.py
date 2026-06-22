@@ -3,10 +3,14 @@ from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 
 from .models import (
     EnterpriseProfile,
+    EntrepreneurDocument,
     EntrepreneurProfile,
     LoginHistory,
+    MentorFeedback,
     MentorProfile,
     Mentorship,
+    Program,
+    ProgramApplication,
     User,
 )
 
@@ -62,3 +66,29 @@ class MentorshipAdmin(admin.ModelAdmin):
     list_display = ('mentor', 'entrepreneur', 'status', 'assigned_at')
     list_filter = ('status',)
     search_fields = ('mentor__email', 'entrepreneur__email')
+
+
+@admin.register(EntrepreneurDocument)
+class EntrepreneurDocumentAdmin(admin.ModelAdmin):
+    list_display = ('name', 'user', 'uploaded_at')
+    search_fields = ('name', 'user__email')
+
+
+@admin.register(Program)
+class ProgramAdmin(admin.ModelAdmin):
+    list_display = ('title', 'enterprise', 'status', 'application_deadline', 'created_at')
+    list_filter = ('status', 'industry_focus')
+    search_fields = ('title', 'enterprise__email')
+
+
+@admin.register(ProgramApplication)
+class ProgramApplicationAdmin(admin.ModelAdmin):
+    list_display = ('program', 'entrepreneur', 'status', 'applied_at')
+    list_filter = ('status',)
+    search_fields = ('program__title', 'entrepreneur__email')
+
+
+@admin.register(MentorFeedback)
+class MentorFeedbackAdmin(admin.ModelAdmin):
+    list_display = ('mentorship', 'progress_rating', 'created_at')
+    search_fields = ('mentorship__mentor__email', 'mentorship__entrepreneur__email')

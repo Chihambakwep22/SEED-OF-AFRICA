@@ -18,11 +18,11 @@ export const tokenStorage = {
   },
 }
 
+// No default Content-Type here: axios infers 'application/json' for plain
+// object payloads on its own, and a hardcoded default would otherwise stop
+// axios from setting the correct multipart boundary on FormData uploads.
 const api = axios.create({
   baseURL: API_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
 })
 
 api.interceptors.request.use((requestConfig) => {
@@ -92,17 +92,37 @@ export const adminAPI = {
 // Enterprise API
 export const enterpriseAPI = {
   searchSuppliers: (params) => api.get('/auth/enterprise/suppliers/', { params }),
+  listPrograms: () => api.get('/auth/enterprise/programs/'),
+  createProgram: (data) => api.post('/auth/enterprise/programs/', data),
+  updateProgram: (id, data) => api.patch(`/auth/enterprise/programs/${id}/`, data),
+  deleteProgram: (id) => api.delete(`/auth/enterprise/programs/${id}/`),
+  getApplicants: (id) => api.get(`/auth/enterprise/programs/${id}/applicants/`),
+  respondToApplication: (id, statusValue) => api.patch(`/auth/enterprise/program-applications/${id}/`, { status: statusValue }),
 }
 
 // Entrepreneur API
 export const entrepreneurAPI = {
   getProfile: () => api.get('/auth/entrepreneur/profile/'),
   updateProfile: (data) => api.patch('/auth/entrepreneur/profile/', data),
+  listDocuments: () => api.get('/auth/entrepreneur/documents/'),
+  uploadDocument: (name, file) => {
+    const formData = new FormData()
+    formData.append('name', name)
+    formData.append('file', file)
+    return api.post('/auth/entrepreneur/documents/', formData)
+  },
+  deleteDocument: (id) => api.delete(`/auth/entrepreneur/documents/${id}/`),
+  listAvailablePrograms: () => api.get('/auth/entrepreneur/programs/'),
+  applyToProgram: (id, message) => api.post(`/auth/entrepreneur/programs/${id}/apply/`, { message }),
+  myApplications: () => api.get('/auth/entrepreneur/my-applications/'),
+  myFeedback: () => api.get('/auth/entrepreneur/feedback/'),
 }
 
 // Mentor API
 export const mentorAPI = {
   getAssignedEntrepreneurs: () => api.get('/auth/mentor/assigned-entrepreneurs/'),
+  listFeedback: () => api.get('/auth/mentor/feedback/'),
+  createFeedback: (data) => api.post('/auth/mentor/feedback/', data),
 }
 
 // Contact API

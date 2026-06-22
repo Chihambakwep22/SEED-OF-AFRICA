@@ -6,8 +6,6 @@ import '../../styles/Admin.css'
 
 const PLACEHOLDER_CARDS = [
   'Session Calendar',
-  'Feedback Forms',
-  'Progress Reports',
   'Messages',
 ]
 

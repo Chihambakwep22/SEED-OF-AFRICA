@@ -6,7 +6,6 @@ import '../../styles/Admin.css'
 const PLACEHOLDER_STATS = [
   'Total Mentors',
   'Active Mentorships',
-  'Active Programs',
   'Training Completion Rate',
   'Resources Downloaded',
   'AI Usage Statistics',
@@ -50,6 +49,10 @@ export default function AdminDashboard() {
         <div className="admin-stat-card">
           <div className="admin-stat-value">{stats?.monthly_registrations ?? '—'}</div>
           <div className="admin-stat-label">Registrations This Month</div>
+        </div>
+        <div className="admin-stat-card">
+          <div className="admin-stat-value">{stats?.active_programs ?? '—'}</div>
+          <div className="admin-stat-label">Active Programs</div>
         </div>
 
         {PLACEHOLDER_STATS.map((label) => (

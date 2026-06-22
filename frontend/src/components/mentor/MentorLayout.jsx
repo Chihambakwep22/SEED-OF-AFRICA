@@ -12,6 +12,9 @@ export default function MentorLayout({ children }) {
           <NavLink to="/mentor/dashboard" className={({ isActive }) => `admin-sidebar-link ${isActive ? 'active' : ''}`}>
             Dashboard
           </NavLink>
+          <NavLink to="/mentor/feedback" className={({ isActive }) => `admin-sidebar-link ${isActive ? 'active' : ''}`}>
+            Feedback
+          </NavLink>
           <button type="button" className="admin-sidebar-link admin-sidebar-logout" onClick={logout}>
             Logout
           </button>

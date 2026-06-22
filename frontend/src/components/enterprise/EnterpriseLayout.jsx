@@ -15,6 +15,9 @@ export default function EnterpriseLayout({ children }) {
           <NavLink to="/enterprise/suppliers" className={({ isActive }) => `admin-sidebar-link ${isActive ? 'active' : ''}`}>
             Supplier Discovery
           </NavLink>
+          <NavLink to="/enterprise/programs" className={({ isActive }) => `admin-sidebar-link ${isActive ? 'active' : ''}`}>
+            Programs
+          </NavLink>
           <button type="button" className="admin-sidebar-link admin-sidebar-logout" onClick={logout}>
             Logout
           </button>
